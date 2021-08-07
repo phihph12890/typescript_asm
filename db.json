@@ -1,0 +1,174 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "LAPTOP ACER"
+    },
+    {
+      "name": "LAPTOP ASUS",
+      "id": 2
+    },
+    {
+      "name": "LAPTOP DELL",
+      "id": 3
+    },
+    {
+      "name": "LAPTOP MSI",
+      "id": 4
+    },
+    {
+      "name": "LAPTOP LENOVO",
+      "id": 5
+    },
+    {
+      "name": "MACBOOK",
+      "id": 6
+    }
+  ],
+  "products": [
+    {
+      "name": "ACER NITRO 5 2020 AN 515-55 (Core i5-10300H, 8GB, 256GB, VGA 4GB GTX 1650, 15.6 IPS 60Hz)",
+      "categoryId": "1",
+      "price": "20890000",
+      "priceSale": "18890000",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F1.jpg?alt=media&token=39d97463-e30b-40be-9e93-93ce2fe471c7",
+      "id": 1
+    },
+    {
+      "name": "Acer Nitro 5 2019 AN515-54 (Core i5-9300H, 8GB, 256GB, VGA 4GB GTX 1650, 15.6 FHD IPS)",
+      "categoryId": "1",
+      "price": "18890000",
+      "priceSale": "16990000",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F2.jpg?alt=media&token=c517ae37-3721-4d50-a73f-6243028158d5",
+      "id": 2
+    },
+    {
+      "categoryId": "1",
+      "name": "Acer Predator Helios 300 (PH315-53-78TN NH.QAUSV.005) Core i7-10750H, 16GB, 512GB, RTX 3060, 15.6'' FHD 300Hz",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F3.jpg?alt=media&token=f4e86617-1665-4730-b720-94ed8339f10c",
+      "price": "41990000",
+      "priceSale": "39990000",
+      "id": 3
+    },
+    {
+      "categoryId": "2",
+      "name": "ASUS ROG ZEPHYRUS G14 GA401IV-BR9N6 Ryzen 9-4900HS, 16GB, 1TB, RTX 2060 Max-Q, 14 FHD IPS 120Hz",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F4.jpg?alt=media&token=e6d695a8-286e-4d79-8e0f-e03c2028ca5c",
+      "price": "40890000",
+      "priceSale": "36890000",
+      "id": 4
+    },
+    {
+      "categoryId": "2",
+      "name": "Asus ROG Zephyrus GA502 Ryzen 7-4800HS, 16GB, 512GB, RTX 2060, 15.6'' FHD IPS 144Hz\n",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F5.jpg?alt=media&token=01397feb-47ef-4aaa-b592-231f390e2409",
+      "price": "34890000",
+      "priceSale": "33890000",
+      "id": 5
+    },
+    {
+      "categoryId": "2",
+      "name": "Asus TUF Dash F15 FX516PE-HN005T Core i7-11370H, 8GB, 512GB, RTX 3050Ti, 15.6″ FHD 144Hz",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F6.jpg?alt=media&token=44e971d8-520d-4a4f-8557-561de9884107",
+      "price": "29990000",
+      "priceSale": "28890000",
+      "id": 6
+    },
+    {
+      "categoryId": "3",
+      "name": "Dell Gaming G15 5510 Core i5-10200H, 8GB, 256GB, GTX 1650, 15.6'' FHD 120Hz",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F7.jpg?alt=media&token=562fe63c-219d-4dfe-884d-52589e3f9ec8",
+      "price": "25890000",
+      "priceSale": "23890000",
+      "id": 7
+    },
+    {
+      "categoryId": "3",
+      "name": "Dell Precision 7750 Core i7-10850H, 32GB, 512GB, RTX 3000, 17.3\" FHD 60Hz",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F8.jpg?alt=media&token=32275ebe-085f-4ac2-a057-aaaff037419f",
+      "price": "58990000",
+      "priceSale": "56990000",
+      "id": 8
+    },
+    {
+      "categoryId": "3",
+      "name": "Dell XPS 15 9500 Core i9-10885H, 64GB, 2TB, GTX 1650Ti, 15.6'' 4K Touch",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F9.jpg?alt=media&token=fb26e9e1-397b-4858-b445-2e74d6d3a09b",
+      "price": "78890000",
+      "priceSale": "72990000",
+      "id": 9
+    },
+    {
+      "categoryId": "4",
+      "name": "Laptop MSI GF75 10SCXR - 248VN (Core i7 10750H, 8GB, 512GB , VGA 4GB NVIDIA GTX 1650, 17.3' FHD 144Hz )",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F11.jpg?alt=media&token=3ed4e3b8-daed-448b-b298-36e1e1aff5f4",
+      "price": "25890000",
+      "priceSale": "23990000",
+      "id": 10
+    },
+    {
+      "categoryId": "4",
+      "name": "Laptop MSI Modern 14 A10M 1053VN Core i5 10210U, 4GB, 256GB, UHD Graphics, 14.0 FHD 60Hz",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F13.jpg?alt=media&token=eac88348-4fb6-4a0c-a1f3-226f9177ec47",
+      "price": "15890000",
+      "priceSale": "14890000",
+      "id": 11
+    },
+    {
+      "categoryId": "4",
+      "name": "MSI GE66 Raider 10SF-239 (Core i7 10750H, 32GB, 1TB, NVIDIA RTX2070 Super 8GB, 15.6' 240Hz )",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F14.jpg?alt=media&token=0a8a3c56-a436-413a-ae0b-6eb5d81171c5",
+      "price": "53890000",
+      "priceSale": "46890000",
+      "id": 12
+    },
+    {
+      "categoryId": "5",
+      "name": "Lenovo Ideapad Gaming 3 15IMH05 Core i7 - 10750H, 8GB, 512GB, GTX 1650Ti, 15.6'' FHD 120Hz",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F16.jpg?alt=media&token=3df04478-ab16-4af9-a819-81b013f0be32",
+      "price": "24890000",
+      "priceSale": "20890000",
+      "id": 13
+    },
+    {
+      "categoryId": "5",
+      "name": "Lenovo Legion 5 15ARH05 Ryzen 5 - 4600H, 8GB, 512GB, GTX 1660Ti, 15.6'' FHD 120Hz",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F17.jpg?alt=media&token=73689216-89fb-450a-bcbf-efc10cb191f1",
+      "price": "25890000",
+      "priceSale": "23890000",
+      "id": 14
+    },
+    {
+      "name": "Apple Macbook Pro 16 Touch Bar (i7 2.6Ghz/16GB RAM/512GB SSD/16.0/Radeon 5300M 4G/ 16.0/Mac OS/Xám) (2019)",
+      "categoryId": "6",
+      "price": "59890000",
+      "priceSale": "58890000",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F24.png?alt=media&token=5086c1db-39aa-4b36-afa6-8ce81b289dc0",
+      "id": 15
+    },
+    {
+      "categoryId": "6",
+      "name": "Apple Macbook Pro 13 Touchbar (Z11D000E5) (Apple M1/16GB RAM/256GB SSD/13.3 inch IPS/Mac OS/Bạc)\n",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F25.png?alt=media&token=3da006df-86e5-4cba-af44-fd2eb376c63c",
+      "price": "41890000",
+      "priceSale": "38890000",
+      "id": 16
+    },
+    {
+      "categoryId": "6",
+      "name": "Apple Macbook Air 13 (MGNE3SA/A) (Apple M1/8GB RAM/512GB SSD/13.3 inch IPS/Mac OS/Vàng) (NEW)\n",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F26.png?alt=media&token=098e87c9-deea-44cb-9cae-d06a513174b6",
+      "price": "33990000",
+      "priceSale": "31590000",
+      "id": 17
+    },
+    {
+      "categoryId": "6",
+      "name": "Apple Macbook Air 13 (MVH22) (i5 1.1Ghz/8GB /512GB SSD/13.3 inch IPS/MacOS/Xám) (2020)\n",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F26.png?alt=media&token=1e71216c-6604-4a64-ae59-a105957ca589",
+      "price": "33890000",
+      "priceSale": "31590000",
+      "id": 18
+    }
+  ]
+}

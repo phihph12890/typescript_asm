@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="file" id="image" />
+        <button id="add">Add</button>
+        
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-storage.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyCp9C0GleShovak_nXRx1fH_mXEXOk_Wtw",
+                authDomain: "typescript-edc33.firebaseapp.com",
+                projectId: "typescript-edc33",
+                storageBucket: "typescript-edc33.appspot.com",
+                messagingSenderId: "857101029594",
+                appId: "1:857101029594:web:b5ede8f467cbefb6b095e3",
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+        </script>
+        <script>
+            let add = document.querySelector("#add");
+            add.addEventListener("click", () => {
+                const ref = firebase.storage().ref("/images");
+                const file = document.querySelector("#image").files[0];
+                const metadata = {
+                    contentType: file.type,
+                };
+                const name = file.name.toLowerCase();
+                const uploadImg = ref.child(name).put(file, metadata);
+                uploadImg
+                    .then((photo) => photo.ref.getDownloadURL())
+                    .then((url) => {
+                        console.log(url);
+                    })
+                    .catch(console.error);
+            });
+        </script>
+    </body>
+</html>

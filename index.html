@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+        <!-- Tempusdominus Bbootstrap 4 -->
+        <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" />
+        <!-- iCheck -->
+        <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+        <!-- JQVMap -->
+        <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css" />
+        <!-- Theme style -->
+        <link rel="stylesheet" href="distLayout/css/adminlte.min.css" />
+        <!-- overlayScrollbars -->
+        <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css" />
+        <!-- Daterange picker -->
+        <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css" />
+        <!-- summernote -->
+        <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css" />
+
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    </head>
+    <body class="hold-transition sidebar-mini layout-fixed">
+        <a href="products/index" data-navigo>ADMIN</a>
+        <div id="root"></div>
+        <script src="https://cdn.jsdelivr.net/npm/navigo@8.11.1/lib/navigo.min.js"></script>
+        <script>
+            window.router = new Navigo("/", { hash: true, linksSelector: "a" });
+        </script>
+        <script type="module" src="./dist/index.js"></script>
+
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-storage.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyCp9C0GleShovak_nXRx1fH_mXEXOk_Wtw",
+                authDomain: "typescript-edc33.firebaseapp.com",
+                projectId: "typescript-edc33",
+                storageBucket: "typescript-edc33.appspot.com",
+                messagingSenderId: "857101029594",
+                appId: "1:857101029594:web:b5ede8f467cbefb6b095e3",
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+        </script>
+    </body>
+</html>
