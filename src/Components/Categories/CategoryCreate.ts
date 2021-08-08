@@ -1,9 +1,9 @@
 import { Component } from "../Component.js";
 import { Category } from "../../Models/Category.js";
 import { CategoryApi } from "../../api/CategoryApi.js";
-import { footer } from "../admin/footer.js";
-import { header } from "../admin/header.js";
-import { sidebar } from "../admin/sidebar.js";
+import { footer } from "../adminComponent/footer.js";
+import { header } from "../adminComponent/header.js";
+import { sidebar } from "../adminComponent/sidebar.js";
 
 export class CategoryCreate extends Component {
     public template(): string {
@@ -49,7 +49,7 @@ export class CategoryCreate extends Component {
 
             let category: Category = new Category(0, name);
             console.log(category);
-            await CategoryApi.create(category);
+            await CategoryApi.add(category);
             window.location.hash = "#/categories/index";
         });
     }

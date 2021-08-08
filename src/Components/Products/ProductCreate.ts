@@ -2,9 +2,11 @@ import { Component } from "../Component.js";
 import { Product } from "../../Models/Product.js";
 import { ProductApi } from "../../api/ProductApi.js";
 import { CategoryApi } from "../../api/CategoryApi.js";
-import { footer } from "../admin/footer.js";
-import { header } from "../admin/header.js";
-import { sidebar } from "../admin/sidebar.js";
+import { footer } from "../adminComponent/footer.js";
+import { header } from "../adminComponent/header.js";
+import { sidebar } from "../adminComponent/sidebar.js";
+
+declare const window: any;
 
 export class ProductCreate extends Component {
     public template(): string {
@@ -30,7 +32,7 @@ export class ProductCreate extends Component {
                                 </div>
                                 <div class=" mt-4">
                                     <div><label class="">Ảnh</label></div>
-                                    <input type="text" name="image" id="image" class="form-control">
+                                    <input type="file" name="image" id="image" class="">
                                 </div>
                             </div>
                             <div>
@@ -61,17 +63,16 @@ export class ProductCreate extends Component {
             `;
     }
     public async afterRender() {
-        const responseCate = await CategoryApi.all();
+        const responseCate = await CategoryApi.list();
         const dataCate = await responseCate.json();
         console.log(dataCate);
 
-        const resultCate = dataCate.map((cate:any) => {
+        const resultCate = dataCate.map((cate: any) => {
             return `
                 <option value="${cate.id}">${cate.name}</option>
-            `
+            `;
         });
         document.getElementById("category")!.innerHTML = resultCate;
-
 
         document.querySelector("#form_create")!.addEventListener("submit", async (e) => {
             e.preventDefault();
@@ -93,9 +94,13 @@ export class ProductCreate extends Component {
             const priceSale: string = inputPriceSale.value;
 
             const inputImage = document.querySelector("#image") as HTMLInputElement;
-            const image: string = inputImage.value;
+            const image: File = inputImage.files![0];
 
-            let product: Product = new Product(0, name, category, price, priceSale, image);
+            const storageRef = await window.firebase.storage().ref(`images/${image.name}`);
+            await storageRef.put(image);
+            const url = await storageRef.getDownloadURL();
+
+            let product: Product = new Product(0, name, category, price, priceSale, url);
             console.log(product);
             await ProductApi.create(product);
             window.location.hash = "#/products/index";

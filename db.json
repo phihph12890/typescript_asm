@@ -1,8 +1,8 @@
 {
   "categories": [
     {
-      "id": 1,
-      "name": "LAPTOP ACER"
+      "name": "LAPTOP ACER",
+      "id": 1
     },
     {
       "name": "LAPTOP ASUS",
@@ -163,11 +163,11 @@
       "id": 17
     },
     {
+      "name": "Apple Macbook Air 13 (MVH22) (i5 1.1Ghz/8GB /512GB SSD/13.3 inch IPS/MacOS/Xám) (2020)",
       "categoryId": "6",
-      "name": "Apple Macbook Air 13 (MVH22) (i5 1.1Ghz/8GB /512GB SSD/13.3 inch IPS/MacOS/Xám) (2020)\n",
-      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F26.png?alt=media&token=1e71216c-6604-4a64-ae59-a105957ca589",
       "price": "33890000",
       "priceSale": "31590000",
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F26.png?alt=media&token=1e71216c-6604-4a64-ae59-a105957ca589",
       "id": 18
     }
   ]

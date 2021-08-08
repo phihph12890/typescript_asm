@@ -1,9 +1,9 @@
 import { Component } from "../Component.js";
 import { Category } from "../../Models/Category.js";
 import { CategoryApi } from "../../api/CategoryApi.js";
-import { footer } from "../admin/footer.js";
-import { header } from "../admin/header.js";
-import { sidebar } from "../admin/sidebar.js";
+import { footer } from "../adminComponent/footer.js";
+import { header } from "../adminComponent/header.js";
+import { sidebar } from "../adminComponent/sidebar.js";
 
 export class CategoryEdit extends Component {
     private _id: string | undefined;
@@ -44,7 +44,7 @@ export class CategoryEdit extends Component {
     }
     public async afterRender() {
         if (typeof this._id != "undefined") {
-            const response = await CategoryApi.find(this._id);
+            const response = await CategoryApi.read(this._id);
             const data = await response.json();
             console.log(data);
 
@@ -54,6 +54,10 @@ export class CategoryEdit extends Component {
         document.querySelector("#form_edit")!.addEventListener("submit", async (e) => {
             e.preventDefault();
 
+            if (typeof this._id === "undefined") {
+                return;
+            }
+
             //Cách 1: Type Casting: < >
             // const inputName = <HTMLInputElement>document.querySelector("#name");
 
@@ -61,7 +65,7 @@ export class CategoryEdit extends Component {
             const inputName = document.querySelector("#name") as HTMLInputElement;
             const name: string = inputName.value;
 
-            let cate: Category = new Category(0, name);
+            let cate: Category = new Category(+this._id, name);
             await CategoryApi.update(this._id, cate);
             window.location.hash = "#/categories/index";
         });

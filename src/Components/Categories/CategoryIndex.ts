@@ -1,9 +1,9 @@
 import { Component } from "../Component.js";
 import { Category } from "../../Models/Category.js";
 import { CategoryApi } from "../../api/CategoryApi.js";
-import { footer } from "../admin/footer.js";
-import { header } from "../admin/header.js";
-import { sidebar } from "../admin/sidebar.js";
+import { footer } from "../adminComponent/footer.js";
+import { header } from "../adminComponent/header.js";
+import { sidebar } from "../adminComponent/sidebar.js";
 
 export class CategoryIndex extends Component {
     private listCategory: Category[];
@@ -42,7 +42,7 @@ export class CategoryIndex extends Component {
             `;
     }
     public async afterRender() {
-        const response = await CategoryApi.all();
+        const response = await CategoryApi.list();
         const data = await response.json();
         console.log(data);
 
@@ -72,7 +72,7 @@ export class CategoryIndex extends Component {
                 e.preventDefault();
                 const Confirm = confirm("Bạn có thật sự muốn xoá?");
                 if (Confirm) {
-                    await CategoryApi.delete(id);
+                    await CategoryApi.remove(id);
                     window.location.hash = "#/categories/index";
                 }
             });

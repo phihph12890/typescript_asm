@@ -52,9 +52,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 import { Component } from "../Component.js";
 import { Category } from "../../Models/Category.js";
 import { CategoryApi } from "../../api/CategoryApi.js";
-import { footer } from "../admin/footer.js";
-import { header } from "../admin/header.js";
-import { sidebar } from "../admin/sidebar.js";
+import { footer } from "../adminComponent/footer.js";
+import { header } from "../adminComponent/header.js";
+import { sidebar } from "../adminComponent/sidebar.js";
 var CategoryEdit = /** @class */ (function (_super) {
     __extends(CategoryEdit, _super);
     function CategoryEdit(id) {
@@ -73,7 +73,7 @@ var CategoryEdit = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         if (!(typeof this._id != "undefined")) return [3 /*break*/, 3];
-                        return [4 /*yield*/, CategoryApi.find(this._id)];
+                        return [4 /*yield*/, CategoryApi.read(this._id)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.json()];
@@ -89,9 +89,12 @@ var CategoryEdit = /** @class */ (function (_super) {
                                 switch (_a.label) {
                                     case 0:
                                         e.preventDefault();
+                                        if (typeof this._id === "undefined") {
+                                            return [2 /*return*/];
+                                        }
                                         inputName = document.querySelector("#name");
                                         name = inputName.value;
-                                        cate = new Category(0, name);
+                                        cate = new Category(+this._id, name);
                                         return [4 /*yield*/, CategoryApi.update(this._id, cate)];
                                     case 1:
                                         _a.sent();

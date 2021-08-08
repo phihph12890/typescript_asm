@@ -51,9 +51,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 import { Component } from "../Component.js";
 import { ProductApi } from "../../api/ProductApi.js";
-import { footer } from "../admin/footer.js";
-import { header } from "../admin/header.js";
-import { sidebar } from "../admin/sidebar.js";
+import { footer } from "../adminComponent/footer.js";
+import { header } from "../adminComponent/header.js";
+import { sidebar } from "../adminComponent/sidebar.js";
+import { prices } from "../../ultis.js";
 var ProductIndex = /** @class */ (function (_super) {
     __extends(ProductIndex, _super);
     function ProductIndex() {
@@ -97,7 +98,7 @@ var ProductIndex = /** @class */ (function (_super) {
                                     return "\n                            MACBOOK\n                        ";
                                 }
                             };
-                            return "\n                    <tr>\n                        <td class=\"w-16\">" + value.id + "</td>\n                        <td >" + value.name + "</td>\n                        <td class=\"w-40\">" + showCate() + "</td>\n                        <td><img class=\"w-64\" src=\"" + value.image + "\" alt=\"\"></td>\n                        <td class=\"w-32\">" + value.price + "</td>\n                        <td class=\"w-40\">" + value.priceSale + "</td>\n                        <td>\n                            <a class=\"btn btn-primary\" href=\"#/products/edit/" + value.id + "\" data-navigo>Update</a>\n                        </td>\n                        <td>\n                            <a class=\"btn btn-danger\" href=\"#/products/delete/" + value.id + "\" data-navigo data-id=\"" + value.id + "\">Delete</a>\n                        </td>\n                    </tr>\n                ";
+                            return "\n                    <tr>\n                        <td class=\"w-16\">" + value.id + "</td>\n                        <td style=\"width:450px\">" + value.name + "</td>\n                        <td class=\"w-40\">" + value.category.name + "</td>\n                        <td><img class=\"w-64\" src=\"" + value.image + "\" alt=\"\"></td>\n                        <td class=\"w-32 text-red-500 font-semibold\">" + prices(Number(value.price)).replace("VND", "Đ") + "</td>\n                        <td class=\"w-40 text-red-500 font-semibold\">" + prices(Number(value.priceSale)).replace("VND", "Đ") + "</td>\n                        <td>\n                            <a class=\"btn btn-primary\" href=\"#/products/edit/" + value.id + "\" data-navigo>Update</a>\n                        </td>\n                        <td>\n                            <a class=\"btn btn-danger\" href=\"#/products/delete/" + value.id + "\" data-navigo data-id=\"" + value.id + "\">Delete</a>\n                        </td>\n                    </tr>\n                ";
                         })
                             .join("");
                         document.querySelector("#tbl_products").innerHTML = tbodyContents;

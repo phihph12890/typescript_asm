@@ -51,9 +51,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 import { Component } from "../Component.js";
 import { CategoryApi } from "../../api/CategoryApi.js";
-import { footer } from "../admin/footer.js";
-import { header } from "../admin/header.js";
-import { sidebar } from "../admin/sidebar.js";
+import { footer } from "../adminComponent/footer.js";
+import { header } from "../adminComponent/header.js";
+import { sidebar } from "../adminComponent/sidebar.js";
 var CategoryIndex = /** @class */ (function (_super) {
     __extends(CategoryIndex, _super);
     function CategoryIndex() {
@@ -70,7 +70,7 @@ var CategoryIndex = /** @class */ (function (_super) {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, CategoryApi.all()];
+                    case 0: return [4 /*yield*/, CategoryApi.list()];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.json()];
@@ -95,7 +95,7 @@ var CategoryIndex = /** @class */ (function (_super) {
                                             e.preventDefault();
                                             Confirm = confirm("Bạn có thật sự muốn xoá?");
                                             if (!Confirm) return [3 /*break*/, 2];
-                                            return [4 /*yield*/, CategoryApi.delete(id)];
+                                            return [4 /*yield*/, CategoryApi.remove(id)];
                                         case 1:
                                             _a.sent();
                                             window.location.hash = "#/categories/index";

@@ -1,19 +1,19 @@
 import { Category } from "../Models/Category.js";
 
 export class CategoryApi {
-    public static all() {
+    public static list() {
         const url: string = "http://localhost:3000/categories";
         return fetch(url, {
             method: "GET",
         });
     }
-    public static find(id: string) {
+    public static read(id: string) {
         const url: string = `http://localhost:3000/categories/${id}`;
         return fetch(url, {
             method: "GET",
         });
     }
-    public static create(cate: Category) {
+    public static add(cate: Category) {
         const url: string = `http://localhost:3000/categories`;
         const data = {
             name: cate.name
@@ -39,7 +39,7 @@ export class CategoryApi {
             body: JSON.stringify(data),
         });
     }
-    public static delete(id: any) {
+    public static remove(id: any) {
         const url: string = `http://localhost:3000/categories/${id}`;
         return fetch(url, {
             method: "DELETE",

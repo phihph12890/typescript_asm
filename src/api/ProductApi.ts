@@ -2,7 +2,7 @@ import { Product } from "../Models/Product.js";
 
 export class ProductApi {
     public static all() {
-        const url: string = "http://localhost:3000/products";
+        const url: string = "http://localhost:3000/products?_expand=category";
         return fetch(url, {
             method: "GET",
         });
@@ -35,6 +35,7 @@ export class ProductApi {
     public static update(id: any, newPro: Product) {
         const url: string = `http://localhost:3000/products/${id}`;
         const data = {
+            id: newPro.id,
             name: newPro.name,
             categoryId: newPro.categoryId,
             price: newPro.price,

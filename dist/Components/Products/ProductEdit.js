@@ -53,9 +53,9 @@ import { Component } from "../Component.js";
 import { Product } from "../../Models/Product.js";
 import { ProductApi } from "../../api/ProductApi.js";
 import { CategoryApi } from "../../api/CategoryApi.js";
-import { footer } from "../admin/footer.js";
-import { header } from "../admin/header.js";
-import { sidebar } from "../admin/sidebar.js";
+import { footer } from "../adminComponent/footer.js";
+import { header } from "../adminComponent/header.js";
+import { sidebar } from "../adminComponent/sidebar.js";
 var ProductEdit = /** @class */ (function (_super) {
     __extends(ProductEdit, _super);
     function ProductEdit(id) {
@@ -64,11 +64,11 @@ var ProductEdit = /** @class */ (function (_super) {
         return _this;
     }
     ProductEdit.prototype.template = function () {
-        return "\n        <div class=\"wrapper\">\n        <!-- Navbar -->\n            " + header.render() + "\n            " + sidebar.render() + "\n            <!-- Content Wrapper. Contains page content -->\n            <div id=\"root\" class=\"content-wrapper\">\n            <div class=\"col-10 offset-1 pt-5 \">\n                    <h3 class=\"text-center text-3xl font-semibold\">C\u1EACP NH\u1EACT S\u1EA2N PH\u1EA8M</h3>\n                    <form action=\"\" method= \"POST\"  id=\"form_edit\">\n                        <div class=\"grid grid-cols-2 gap-12\">\n                            <div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">T\u00EAn s\u1EA3n ph\u1EA9m</label>\n                                    <input type=\"text\" name=\"name\" id=\"name\" class=\"form-control\">\n                                </div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">Danh m\u1EE5c</label>\n                                    <select class=\"form-control\" name=\"\" id=\"category\"></select>\n                                </div>\n                                <div class=\" mt-4\">\n                                    <div><label class=\"\">\u1EA2nh</label></div>\n                                    <input type=\"text\" name=\"image\" id=\"image\" class=\"form-control\">\n                                </div>\n                            </div>\n                            <div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">Gi\u00E1 ti\u1EC1n</label>\n                                    <input type=\"number\" name=\"price\" id=\"price\" class=\"form-control\">\n                                </div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">Gi\u00E1 khuy\u1EBFn m\u00E3i</label>\n                                    <input type=\"number\" name=\"priceSale\" id=\"priceSale\" class=\"form-control\">\n                                </div>\n                            </div>\n                        </div>\n                        \n                        <div class=\" mt-8 text-center\">\n                            <div>\n                                <button class=\"btn btn-primary px-5\">C\u1EACP NH\u1EACT</button>\n                            </div>\n                            <button class=\"btn btn-default mt-2 px-5\">\n                                <a href=\"#/products/index\" data-navigo>Cancel</a>\n                            </button>\n                        </div>\n                    </form>\n                </div>\n            </div>\n            " + footer.render() + "\n        </div>\n            ";
+        return "\n        <div class=\"wrapper\">\n        <!-- Navbar -->\n            " + header.render() + "\n            " + sidebar.render() + "\n            <!-- Content Wrapper. Contains page content -->\n            <div id=\"root\" class=\"content-wrapper pb-5\">\n            <div class=\"col-10 offset-1 pt-5 \">\n                    <h3 class=\"text-center text-3xl font-semibold\">C\u1EACP NH\u1EACT S\u1EA2N PH\u1EA8M</h3>\n                    <form action=\"\" method= \"POST\"  id=\"form_edit\">\n                        <div class=\"grid grid-cols-2 gap-12\">\n                            <div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">T\u00EAn s\u1EA3n ph\u1EA9m</label>\n                                    <input type=\"text\" name=\"name\" id=\"name\" class=\"form-control\">\n                                </div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">Danh m\u1EE5c</label>\n                                    <select class=\"form-control\" name=\"\" id=\"category\"></select>\n                                </div>\n                                <div class=\" mt-4\">\n                                    <div><label class=\"\">\u1EA2nh</label></div>\n                                    <img class=\"w-64\" id=\"imageChoosed\" src=\"\" alt=\"\">\n                                    <input type=\"file\" name=\"image\" id=\"image\" class=\"\">\n                                </div>\n                            </div>\n                            <div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">Gi\u00E1 ti\u1EC1n</label>\n                                    <input type=\"number\" name=\"price\" id=\"price\" class=\"form-control\">\n                                </div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">Gi\u00E1 khuy\u1EBFn m\u00E3i</label>\n                                    <input type=\"number\" name=\"priceSale\" id=\"priceSale\" class=\"form-control\">\n                                </div>\n                            </div>\n                        </div>\n                        \n                        <div class=\" mt-8 text-center\">\n                            <div>\n                                <button class=\"btn btn-primary px-5\">C\u1EACP NH\u1EACT</button>\n                            </div>\n                            <button class=\"btn btn-default mt-2 px-5\">\n                                <a href=\"#/products/index\" data-navigo>Cancel</a>\n                            </button>\n                        </div>\n                    </form>\n                </div>\n            </div>\n            " + footer.render() + "\n        </div>\n            ";
     };
     ProductEdit.prototype.afterRender = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var response, data, responseCate, dataCate_1, resultCate, arrCate, responseCateRelated, dataCateRelated, resultCateRelated, i, resultListCate;
+            var response, data, imageChoosed_1, responseCate, dataCate_1, resultCate, arrCate, responseCateRelated, dataCateRelated, resultCateRelated, i, resultListCate;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -82,10 +82,11 @@ var ProductEdit = /** @class */ (function (_super) {
                         data = _a.sent();
                         console.log(data);
                         document.querySelector("#name").value = data.name;
-                        document.querySelector("#image").value = data.image;
+                        imageChoosed_1 = (document.querySelector("#imageChoosed").src = data.image);
+                        console.log(imageChoosed_1);
                         document.querySelector("#price").value = data.price;
                         document.querySelector("#priceSale").value = data.priceSale;
-                        return [4 /*yield*/, CategoryApi.find(data.categoryId)];
+                        return [4 /*yield*/, CategoryApi.read(data.categoryId)];
                     case 3:
                         responseCate = _a.sent();
                         return [4 /*yield*/, responseCate.json()];
@@ -117,14 +118,18 @@ var ProductEdit = /** @class */ (function (_super) {
                         })
                             .join("");
                         document.getElementById("category").innerHTML = resultListCate;
-                        _a.label = 7;
-                    case 7:
                         document.querySelector("#form_edit").addEventListener("submit", function (e) { return __awaiter(_this, void 0, void 0, function () {
-                            var inputName, name, inputCategory, category, inputPrice, price, inputPriceSale, priceSale, inputImage, image, product;
+                            var inputName, name, inputCategory, category, inputPrice, price, inputPriceSale, priceSale, inputImage, image, product, storageRef, url, product;
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
                                     case 0:
                                         e.preventDefault();
+                                        //Cách 1: Type Casting: < >
+                                        // const inputName = <HTMLInputElement>document.querySelector("#name");
+                                        //Cách 2: as
+                                        if (typeof this._id === "undefined") {
+                                            return [2 /*return*/];
+                                        }
                                         inputName = document.querySelector("#name");
                                         name = inputName.value;
                                         inputCategory = document.querySelector("#category");
@@ -134,18 +139,37 @@ var ProductEdit = /** @class */ (function (_super) {
                                         inputPriceSale = document.querySelector("#priceSale");
                                         priceSale = inputPriceSale.value;
                                         inputImage = document.querySelector("#image");
-                                        image = inputImage.value;
-                                        product = new Product(0, name, category, price, priceSale, image);
+                                        image = inputImage.files[0];
+                                        if (!(image == undefined)) return [3 /*break*/, 2];
+                                        product = new Product(+this._id, name, category, price, priceSale, imageChoosed_1);
                                         console.log(product);
                                         return [4 /*yield*/, ProductApi.update(this._id, product)];
                                     case 1:
                                         _a.sent();
                                         window.location.hash = "#/products/index";
-                                        return [2 /*return*/];
+                                        return [3 /*break*/, 7];
+                                    case 2: return [4 /*yield*/, window.firebase.storage().ref("images/" + image.name)];
+                                    case 3:
+                                        storageRef = _a.sent();
+                                        return [4 /*yield*/, storageRef.put(image)];
+                                    case 4:
+                                        _a.sent();
+                                        return [4 /*yield*/, storageRef.getDownloadURL()];
+                                    case 5:
+                                        url = _a.sent();
+                                        product = new Product(+this._id, name, category, price, priceSale, url);
+                                        console.log(product);
+                                        return [4 /*yield*/, ProductApi.update(this._id, product)];
+                                    case 6:
+                                        _a.sent();
+                                        window.location.hash = "#/products/index";
+                                        _a.label = 7;
+                                    case 7: return [2 /*return*/];
                                 }
                             });
                         }); });
-                        return [2 /*return*/];
+                        _a.label = 7;
+                    case 7: return [2 /*return*/];
                 }
             });
         });

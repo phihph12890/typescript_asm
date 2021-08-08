@@ -1,19 +1,19 @@
 var CategoryApi = /** @class */ (function () {
     function CategoryApi() {
     }
-    CategoryApi.all = function () {
+    CategoryApi.list = function () {
         var url = "http://localhost:3000/categories";
         return fetch(url, {
             method: "GET",
         });
     };
-    CategoryApi.find = function (id) {
+    CategoryApi.read = function (id) {
         var url = "http://localhost:3000/categories/" + id;
         return fetch(url, {
             method: "GET",
         });
     };
-    CategoryApi.create = function (cate) {
+    CategoryApi.add = function (cate) {
         var url = "http://localhost:3000/categories";
         var data = {
             name: cate.name
@@ -39,7 +39,7 @@ var CategoryApi = /** @class */ (function () {
             body: JSON.stringify(data),
         });
     };
-    CategoryApi.delete = function (id) {
+    CategoryApi.remove = function (id) {
         var url = "http://localhost:3000/categories/" + id;
         return fetch(url, {
             method: "DELETE",

@@ -27,6 +27,7 @@
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
         <a href="products/index" data-navigo>ADMIN</a>
+        <a href="home" data-navigo>CLIENT</a>
         <div id="root"></div>
         <script src="https://cdn.jsdelivr.net/npm/navigo@8.11.1/lib/navigo.min.js"></script>
         <script>
@@ -54,6 +55,7 @@
             };
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
+            window.firebase = firebase;
         </script>
     </body>
 </html>

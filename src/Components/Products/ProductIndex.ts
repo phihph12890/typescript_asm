@@ -1,9 +1,10 @@
 import { Component } from "../Component.js";
 import { Product } from "../../Models/Product.js";
 import { ProductApi } from "../../api/ProductApi.js";
-import { footer } from "../admin/footer.js";
-import { header } from "../admin/header.js";
-import { sidebar } from "../admin/sidebar.js";
+import { footer } from "../adminComponent/footer.js";
+import { header } from "../adminComponent/header.js";
+import { sidebar } from "../adminComponent/sidebar.js";
+import {prices} from "../../ultis.js";
 
 export class ProductIndex extends Component {
     public constructor() {
@@ -80,11 +81,11 @@ export class ProductIndex extends Component {
                 return `
                     <tr>
                         <td class="w-16">${value.id}</td>
-                        <td >${value.name}</td>
-                        <td class="w-40">${showCate()}</td>
+                        <td style="width:450px">${value.name}</td>
+                        <td class="w-40">${value.category.name}</td>
                         <td><img class="w-64" src="${value.image}" alt=""></td>
-                        <td class="w-32">${value.price}</td>
-                        <td class="w-40">${value.priceSale}</td>
+                        <td class="w-32 text-red-500 font-semibold">${prices(Number(value.price)).replace("VND", "Đ")}</td>
+                        <td class="w-40 text-red-500 font-semibold">${prices(Number(value.priceSale)).replace("VND", "Đ")}</td>
                         <td>
                             <a class="btn btn-primary" href="#/products/edit/${value.id}" data-navigo>Update</a>
                         </td>

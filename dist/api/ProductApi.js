@@ -2,7 +2,7 @@ var ProductApi = /** @class */ (function () {
     function ProductApi() {
     }
     ProductApi.all = function () {
-        var url = "http://localhost:3000/products";
+        var url = "http://localhost:3000/products?_expand=category";
         return fetch(url, {
             method: "GET",
         });
@@ -35,6 +35,7 @@ var ProductApi = /** @class */ (function () {
     ProductApi.update = function (id, newPro) {
         var url = "http://localhost:3000/products/" + id;
         var data = {
+            id: newPro.id,
             name: newPro.name,
             categoryId: newPro.categoryId,
             price: newPro.price,

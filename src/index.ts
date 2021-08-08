@@ -7,8 +7,6 @@ import { ProductCreate } from "./Components/Products/ProductCreate.js";
 import { ProductIndex } from "./Components/Products/ProductIndex.js";
 import { ProductEdit } from "./Components/Products/ProductEdit.js";
 
-
-
 declare const window: any;
 
 type Route = {
@@ -56,7 +54,6 @@ const routes = () => {
             await gui.render();
             gui.afterRender();
         })
-        .resolve()
-        
+        .resolve() 
 };
 routes();

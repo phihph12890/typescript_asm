@@ -52,9 +52,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 import { Component } from "../Component.js";
 import { Category } from "../../Models/Category.js";
 import { CategoryApi } from "../../api/CategoryApi.js";
-import { footer } from "../admin/footer.js";
-import { header } from "../admin/header.js";
-import { sidebar } from "../admin/sidebar.js";
+import { footer } from "../adminComponent/footer.js";
+import { header } from "../adminComponent/header.js";
+import { sidebar } from "../adminComponent/sidebar.js";
 var CategoryCreate = /** @class */ (function (_super) {
     __extends(CategoryCreate, _super);
     function CategoryCreate() {
@@ -75,7 +75,7 @@ var CategoryCreate = /** @class */ (function (_super) {
                         name = inputName.value;
                         category = new Category(0, name);
                         console.log(category);
-                        return [4 /*yield*/, CategoryApi.create(category)];
+                        return [4 /*yield*/, CategoryApi.add(category)];
                     case 1:
                         _a.sent();
                         window.location.hash = "#/categories/index";
