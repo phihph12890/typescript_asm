@@ -1,19 +1,19 @@
 var ProductApi = /** @class */ (function () {
     function ProductApi() {
     }
-    ProductApi.all = function () {
+    ProductApi.list = function () {
         var url = "http://localhost:3000/products?_expand=category";
         return fetch(url, {
             method: "GET",
         });
     };
-    ProductApi.find = function (id) {
+    ProductApi.read = function (id) {
         var url = "http://localhost:3000/products/" + id;
         return fetch(url, {
             method: "GET",
         });
     };
-    ProductApi.create = function (pro) {
+    ProductApi.add = function (pro) {
         console.log(pro);
         var url = "http://localhost:3000/products?_expand=category";
         var data = {
@@ -21,7 +21,7 @@ var ProductApi = /** @class */ (function () {
             categoryId: pro.categoryId,
             price: pro.price,
             priceSale: pro.priceSale,
-            image: pro.image
+            image: pro.image,
         };
         console.log(data);
         return fetch(url, {
@@ -40,7 +40,7 @@ var ProductApi = /** @class */ (function () {
             categoryId: newPro.categoryId,
             price: newPro.price,
             priceSale: newPro.priceSale,
-            image: newPro.image
+            image: newPro.image,
         };
         return fetch(url, {
             method: "PUT",
@@ -50,10 +50,37 @@ var ProductApi = /** @class */ (function () {
             body: JSON.stringify(data),
         });
     };
-    ProductApi.delete = function (id) {
+    ProductApi.remove = function (id) {
         var url = "http://localhost:3000/products/" + id;
         return fetch(url, {
             method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+    };
+    ProductApi.sortPrice = function (level) {
+        var url = "http://localhost:3000/products?_sort=priceSale&_order=" + level;
+        return fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+    };
+    ProductApi.filterPrice = function (price1, price2) {
+        var url = "http://localhost:3000/products?priceSale_gte=" + price1 + "&priceSale_lte=" + price2;
+        return fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+    };
+    ProductApi.search = function (textSearch) {
+        var url = "http://localhost:3000/products?name_like=" + textSearch;
+        return fetch(url, {
+            method: "GET",
             headers: {
                 "Content-Type": "application/json",
             },

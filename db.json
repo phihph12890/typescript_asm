@@ -27,12 +27,12 @@
   ],
   "products": [
     {
+      "id": 1,
       "name": "ACER NITRO 5 2020 AN 515-55 (Core i5-10300H, 8GB, 256GB, VGA 4GB GTX 1650, 15.6 IPS 60Hz)",
       "categoryId": "1",
       "price": "20890000",
       "priceSale": "18890000",
-      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F1.jpg?alt=media&token=39d97463-e30b-40be-9e93-93ce2fe471c7",
-      "id": 1
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F1.jpg?alt=media&token=39d97463-e30b-40be-9e93-93ce2fe471c7"
     },
     {
       "name": "Acer Nitro 5 2019 AN515-54 (Core i5-9300H, 8GB, 256GB, VGA 4GB GTX 1650, 15.6 FHD IPS)",
@@ -83,12 +83,12 @@
       "id": 7
     },
     {
-      "categoryId": "3",
+      "id": 8,
       "name": "Dell Precision 7750 Core i7-10850H, 32GB, 512GB, RTX 3000, 17.3\" FHD 60Hz",
-      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F8.jpg?alt=media&token=32275ebe-085f-4ac2-a057-aaaff037419f",
+      "categoryId": "3",
       "price": "58990000",
       "priceSale": "56990000",
-      "id": 8
+      "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F8.jpg?alt=media&token=32275ebe-085f-4ac2-a057-aaaff037419f"
     },
     {
       "categoryId": "3",

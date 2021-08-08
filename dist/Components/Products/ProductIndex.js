@@ -54,7 +54,7 @@ import { ProductApi } from "../../api/ProductApi.js";
 import { footer } from "../adminComponent/footer.js";
 import { header } from "../adminComponent/header.js";
 import { sidebar } from "../adminComponent/sidebar.js";
-import { prices } from "../../ultis.js";
+import { prices, $$ } from "../../ultis.js";
 var ProductIndex = /** @class */ (function (_super) {
     __extends(ProductIndex, _super);
     function ProductIndex() {
@@ -69,7 +69,7 @@ var ProductIndex = /** @class */ (function (_super) {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, ProductApi.all()];
+                    case 0: return [4 /*yield*/, ProductApi.list()];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.json()];
@@ -102,7 +102,7 @@ var ProductIndex = /** @class */ (function (_super) {
                         })
                             .join("");
                         document.querySelector("#tbl_products").innerHTML = tbodyContents;
-                        listBtnDel = document.querySelectorAll(".btn-danger");
+                        listBtnDel = $$(".btn-danger");
                         console.log(listBtnDel);
                         listBtnDel.forEach(function (btn) {
                             var id = btn.dataset.id;
@@ -115,7 +115,7 @@ var ProductIndex = /** @class */ (function (_super) {
                                             e.preventDefault();
                                             Confirm = confirm("Bạn có thật sự muốn xoá?");
                                             if (!Confirm) return [3 /*break*/, 2];
-                                            return [4 /*yield*/, ProductApi.delete(id)];
+                                            return [4 /*yield*/, ProductApi.remove(id)];
                                         case 1:
                                             _a.sent();
                                             window.location.hash = "#/products/index";

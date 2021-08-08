@@ -74,7 +74,8 @@ var ProductEdit = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         if (!(typeof this._id != "undefined")) return [3 /*break*/, 7];
-                        return [4 /*yield*/, ProductApi.find(this._id)];
+                        console.log("this._id", this._id);
+                        return [4 /*yield*/, ProductApi.read(this._id)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.json()];

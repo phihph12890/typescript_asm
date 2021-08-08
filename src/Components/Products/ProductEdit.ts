@@ -71,7 +71,8 @@ export class ProductEdit extends Component {
     }
     public async afterRender() {
         if (typeof this._id != "undefined") {
-            const response = await ProductApi.find(this._id);
+            console.log("this._id",this._id);
+            const response = await ProductApi.read(this._id);
             const data = await response.json();
             console.log(data);
 

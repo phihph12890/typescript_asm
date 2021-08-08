@@ -102,7 +102,7 @@ export class ProductCreate extends Component {
 
             let product: Product = new Product(0, name, category, price, priceSale, url);
             console.log(product);
-            await ProductApi.create(product);
+            await ProductApi.add(product);
             window.location.hash = "#/products/index";
         });
     }

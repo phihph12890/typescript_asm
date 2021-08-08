@@ -4,7 +4,6 @@ export abstract class Component implements IComponent {
     public async render() {
         //Hiển thị giao diện
         document.querySelector("#root")!.innerHTML = await this.template(); // thêm dấu !  sau querySelector => thông báo chắc chắn có phần tử
-
         //Xử lý
         await this.afterRender();
     }

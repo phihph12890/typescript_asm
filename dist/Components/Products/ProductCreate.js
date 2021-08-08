@@ -108,7 +108,7 @@ var ProductCreate = /** @class */ (function (_super) {
                                         url = _a.sent();
                                         product = new Product(0, name, category, price, priceSale, url);
                                         console.log(product);
-                                        return [4 /*yield*/, ProductApi.create(product)];
+                                        return [4 /*yield*/, ProductApi.add(product)];
                                     case 4:
                                         _a.sent();
                                         window.location.hash = "#/products/index";

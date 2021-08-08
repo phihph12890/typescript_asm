@@ -23,18 +23,25 @@
         <!-- summernote -->
         <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css" />
 
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+        <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" /> -->
+        <link rel="stylesheet" href="./css/tailwind.css">
+
+        <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
-        <a href="products/index" data-navigo>ADMIN</a>
-        <a href="home" data-navigo>CLIENT</a>
         <div id="root"></div>
+
         <script src="https://cdn.jsdelivr.net/npm/navigo@8.11.1/lib/navigo.min.js"></script>
         <script>
             window.router = new Navigo("/", { hash: true, linksSelector: "a" });
         </script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="slick/slick.min.js"></script>
         <script type="module" src="./dist/index.js"></script>
-
+        
 
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
@@ -56,6 +63,9 @@
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
             window.firebase = firebase;
+        </script>
+        <script>
+            $('.slickSlider').slick();
         </script>
     </body>
 </html>

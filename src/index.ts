@@ -7,6 +7,11 @@ import { ProductCreate } from "./Components/Products/ProductCreate.js";
 import { ProductIndex } from "./Components/Products/ProductIndex.js";
 import { ProductEdit } from "./Components/Products/ProductEdit.js";
 
+import { HomePage } from "./Components/pages/HomePage.js";
+import { CategoryPage } from "./Components/pages/CategoryPage.js";
+import { ShopCartPage } from "./Components/pages/ShopCartPage.js";
+import { ProductSearch } from "./Components/pages/ProductSearch.js";
+
 declare const window: any;
 
 type Route = {
@@ -54,6 +59,28 @@ const routes = () => {
             await gui.render();
             gui.afterRender();
         })
-        .resolve() 
+        .on("/", async () => {
+            const gui: Component = new HomePage();
+            await gui.render();
+            gui.afterRender();
+        })
+        .on("/category/:id", async (params: Match) => {
+            const id = params?.data?.id;
+            const gui: Component = new CategoryPage(id);
+            await gui.render();
+            gui.afterRender();
+        })
+        .on("/shopcart", async()=>{
+            const gui:Component = new ShopCartPage();
+            await gui.render();
+            gui.afterRender();
+        })
+        .on("/search/:id", async (params: Match) => {
+            const id = params?.data?.id;
+            const gui: Component = new ProductSearch(id);
+            await gui.render();
+            gui.afterRender();
+        })
+        .resolve();
 };
 routes();

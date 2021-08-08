@@ -4,7 +4,7 @@ import { ProductApi } from "../../api/ProductApi.js";
 import { footer } from "../adminComponent/footer.js";
 import { header } from "../adminComponent/header.js";
 import { sidebar } from "../adminComponent/sidebar.js";
-import {prices} from "../../ultis.js";
+import { prices, $$ } from "../../ultis.js";
 
 export class ProductIndex extends Component {
     public constructor() {
@@ -45,7 +45,7 @@ export class ProductIndex extends Component {
         `;
     }
     public async afterRender() {
-        const response = await ProductApi.all();
+        const response = await ProductApi.list();
         const data = await response.json();
         console.log(data);
 
@@ -98,7 +98,22 @@ export class ProductIndex extends Component {
             .join("");
         document.querySelector("#tbl_products")!.innerHTML = tbodyContents;
 
-        const listBtnDel: NodeListOf<HTMLButtonElement> = document.querySelectorAll(".btn-danger");
+        // const listBtnDel: NodeListOf<HTMLButtonElement> = document.querySelectorAll(".btn-danger");
+        // console.log(listBtnDel);
+        // listBtnDel.forEach((btn) => {
+        //     const id = btn.dataset.id;
+        //     console.log(id);
+        //     btn.addEventListener("click", async (e) => {
+        //         e.preventDefault();
+        //         const Confirm = confirm("Bạn có thật sự muốn xoá?");
+        //         if (Confirm) {
+        //             await ProductApi.remove(id);
+        //             window.location.hash = "#/products/index";
+        //         }
+        //     });
+        // });
+
+        const listBtnDel: NodeListOf<HTMLButtonElement> = $$(".btn-danger");
         console.log(listBtnDel);
         listBtnDel.forEach((btn) => {
             const id = btn.dataset.id;
@@ -107,7 +122,7 @@ export class ProductIndex extends Component {
                 e.preventDefault();
                 const Confirm = confirm("Bạn có thật sự muốn xoá?");
                 if (Confirm) {
-                    await ProductApi.delete(id);
+                    await ProductApi.remove(id);
                     window.location.hash = "#/products/index";
                 }
             });
