@@ -139,7 +139,7 @@ export class ProductEdit extends Component {
                 const image: File = inputImage.files![0];
 
                 if (image == undefined) {
-                    let product: Product = new Product(+this._id, name, category, price, priceSale, imageChoosed);
+                    let product: Product = new Product(+this._id, name, category, price, priceSale, data.image);
                     console.log(product);
                     await ProductApi.update(this._id, product);
                     window.location.hash = "#/products/index";

@@ -4,7 +4,7 @@ import { header } from "../clientComponent/header.js";
 import { banner } from "../clientComponent/banner.js";
 import { footer } from "../clientComponent/footer.js";
 import { ProductApi } from "../../api/ProductApi.js";
-import { prices, $$, productSearch } from "../../ultis.js";
+import { prices, $$, productSearch, addToCart, onLoadCartNumber, getTotalItemOnCart } from "../../ultis.js";
 
 export class HomePage extends Component {
     public async template() {
@@ -45,8 +45,8 @@ export class HomePage extends Component {
         `;
     }
     public async afterRender() {
-        
         productSearch();
+        onLoadCartNumber();
         (document.querySelector("#sticky") as HTMLElement).style.position = "sticky";
         (document.querySelector("#sticky") as HTMLElement).style.top = "30px";
         const response = await ProductApi.list();
@@ -85,7 +85,7 @@ export class HomePage extends Component {
             const productSort = await responseProductSort.json();
             console.log(productSort);
             const resultSort = productSort
-                .map((product:any) => {
+                .map((product: any) => {
                     return `
                     <div class="group overflow-hidden shadow-md bg-white ">
                         <div class="bg-white overflow-hidden ">
@@ -117,10 +117,10 @@ export class HomePage extends Component {
             var valueFilter = filter.value.split("-");
             console.log(valueFilter);
             const [valueFilter1, valueFilter2] = valueFilter;
-            const responseProductFilter  = await ProductApi.filterPrice(valueFilter1, valueFilter2);
+            const responseProductFilter = await ProductApi.filterPrice(valueFilter1, valueFilter2);
             const productFilter = await responseProductFilter.json();
             const resultFilter = productFilter
-                .map((product:any) => {
+                .map((product: any) => {
                     return `
                     <div class="group overflow-hidden shadow-md bg-white ">
                         <div class="bg-white overflow-hidden ">
@@ -144,6 +144,20 @@ export class HomePage extends Component {
                 })
                 .join("");
             $$("#list_product").innerHTML = resultFilter;
+        });
+
+        const btns = $$(".btn_addCart");
+        btns.forEach(async (btn: any) => {
+            var btn_id = btn.dataset.id;
+            btn.addEventListener("click", async () => {
+                console.log(btn_id);
+                const responseProducts = await ProductApi.read(btn_id);
+                const products = await responseProducts.json();
+                console.log(products);
+                addToCart(products.id, products.name, products.image, products.price, products.categoryId);
+                getTotalItemOnCart();
+                onLoadCartNumber();
+            });
         });
     }
 }

@@ -4,7 +4,7 @@ import { header } from "../clientComponent/header.js";
 import { banner } from "../clientComponent/banner.js";
 import { footer } from "../clientComponent/footer.js";
 import { ProductApi } from "../../api/ProductApi.js";
-import { prices } from "../../ultis.js";
+import { prices, productSearch, onLoadCartNumber } from "../../ultis.js";
 
 export class ShopCartPage extends Component {
     public async template() {
@@ -84,6 +84,7 @@ export class ShopCartPage extends Component {
         `;
     }
     public async afterRender() {
-        
+        productSearch();
+        onLoadCartNumber();
     }
 }

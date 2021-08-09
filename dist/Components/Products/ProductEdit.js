@@ -68,7 +68,7 @@ var ProductEdit = /** @class */ (function (_super) {
     };
     ProductEdit.prototype.afterRender = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var response, data, imageChoosed_1, responseCate, dataCate_1, resultCate, arrCate, responseCateRelated, dataCateRelated, resultCateRelated, i, resultListCate;
+            var response, data_1, imageChoosed, responseCate, dataCate_1, resultCate, arrCate, responseCateRelated, dataCateRelated, resultCateRelated, i, resultListCate;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -80,14 +80,14 @@ var ProductEdit = /** @class */ (function (_super) {
                         response = _a.sent();
                         return [4 /*yield*/, response.json()];
                     case 2:
-                        data = _a.sent();
-                        console.log(data);
-                        document.querySelector("#name").value = data.name;
-                        imageChoosed_1 = (document.querySelector("#imageChoosed").src = data.image);
-                        console.log(imageChoosed_1);
-                        document.querySelector("#price").value = data.price;
-                        document.querySelector("#priceSale").value = data.priceSale;
-                        return [4 /*yield*/, CategoryApi.read(data.categoryId)];
+                        data_1 = _a.sent();
+                        console.log(data_1);
+                        document.querySelector("#name").value = data_1.name;
+                        imageChoosed = (document.querySelector("#imageChoosed").src = data_1.image);
+                        console.log(imageChoosed);
+                        document.querySelector("#price").value = data_1.price;
+                        document.querySelector("#priceSale").value = data_1.priceSale;
+                        return [4 /*yield*/, CategoryApi.read(data_1.categoryId)];
                     case 3:
                         responseCate = _a.sent();
                         return [4 /*yield*/, responseCate.json()];
@@ -99,7 +99,7 @@ var ProductEdit = /** @class */ (function (_super) {
                         };
                         arrCate = [];
                         arrCate.push(resultCate());
-                        return [4 /*yield*/, CategoryApi.listRelated(data.categoryId)];
+                        return [4 /*yield*/, CategoryApi.listRelated(data_1.categoryId)];
                     case 5:
                         responseCateRelated = _a.sent();
                         return [4 /*yield*/, responseCateRelated.json()];
@@ -142,7 +142,7 @@ var ProductEdit = /** @class */ (function (_super) {
                                         inputImage = document.querySelector("#image");
                                         image = inputImage.files[0];
                                         if (!(image == undefined)) return [3 /*break*/, 2];
-                                        product = new Product(+this._id, name, category, price, priceSale, imageChoosed_1);
+                                        product = new Product(+this._id, name, category, price, priceSale, data_1.image);
                                         console.log(product);
                                         return [4 /*yield*/, ProductApi.update(this._id, product)];
                                     case 1:

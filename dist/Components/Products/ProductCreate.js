@@ -62,7 +62,7 @@ var ProductCreate = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     ProductCreate.prototype.template = function () {
-        return "\n        <div class=\"wrapper\">\n        <!-- Navbar -->\n            " + header.render() + "\n            " + sidebar.render() + "\n            <!-- Content Wrapper. Contains page content -->\n            <div id=\"root\" class=\"content-wrapper\">\n            <div class=\"col-10 offset-1 pt-5 \">\n                    <h3 class=\"text-center text-3xl font-semibold\">TH\u00CAM S\u1EA2N PH\u1EA8M</h3>\n                    <form action=\"\" method= \"POST\"  id=\"form_create\">\n                        <div class=\"grid grid-cols-2 gap-12\">\n                            <div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">T\u00EAn s\u1EA3n ph\u1EA9m</label>\n                                    <input type=\"text\" name=\"name\" id=\"name\" class=\"form-control\">\n                                </div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">Danh m\u1EE5c</label>\n                                    <select class=\"form-control\" name=\"\" id=\"category\"></select>\n                                </div>\n                                <div class=\" mt-4\">\n                                    <div><label class=\"\">\u1EA2nh</label></div>\n                                    <input type=\"file\" name=\"image\" id=\"image\" class=\"\">\n                                </div>\n                            </div>\n                            <div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">Gi\u00E1 ti\u1EC1n</label>\n                                    <input type=\"number\" name=\"price\" id=\"price\" class=\"form-control\">\n                                </div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">Gi\u00E1 khuy\u1EBFn m\u00E3i</label>\n                                    <input type=\"number\" name=\"priceSale\" id=\"priceSale\" class=\"form-control\">\n                                </div>\n                            </div>\n                        </div>\n                        \n                        <div class=\" mt-8 text-center\">\n                            <div>\n                                <button class=\"btn btn-primary px-5\">TH\u00CAM</button>\n                            </div>\n                            <button class=\"btn btn-default mt-2 px-5\">\n                                <a href=\"#/products/index\" data-navigo>Cancel</a>\n                            </button>\n                        </div>\n                    </form>\n                </div>\n            </div>\n            " + footer.render() + "\n        </div>\n            ";
+        return "\n        <div class=\"wrapper\">\n        <!-- Navbar -->\n            " + header.render() + "\n            " + sidebar.render() + "\n            <!-- Content Wrapper. Contains page content -->\n            <div id=\"root\" class=\"content-wrapper\">\n            <div class=\"col-10 offset-1 pt-5 \">\n                    <h3 class=\"text-center text-3xl font-semibold\">TH\u00CAM S\u1EA2N PH\u1EA8M</h3>\n                    <form action=\"\" method= \"POST\"  id=\"form_create\">\n                        <div class=\"grid grid-cols-2 gap-12\">\n                            <div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">T\u00EAn s\u1EA3n ph\u1EA9m</label>\n                                    <input type=\"text\" name=\"name\" id=\"name\" class=\"form-control checkValidate \">\n                                    <p class=\"error text-red-500 text-sm font-semibold\"></p>\n                                </div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">Danh m\u1EE5c</label>\n                                    <select class=\"form-control checkValidate\" name=\"\" id=\"category\"></select>\n                                </div>\n                                <div class=\" mt-4\">\n                                    <div><label class=\"\">\u1EA2nh</label></div>\n                                    <input type=\"file\" name=\"image\" id=\"image\" class=\"checkImg\">\n                                    <p class=\"error text-red-500 text-sm font-semibold errorImg\"></p>\n                                </div>\n                            </div>\n                            <div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">Gi\u00E1 ti\u1EC1n</label>\n                                    <input type=\"number\" name=\"price\" id=\"price\" class=\"form-control checkValidate\">\n                                    <p class=\"error text-red-500 text-sm font-semibold\"></p>\n                                </div>\n                                <div class=\" mt-4\">\n                                    <label class=\"\">Gi\u00E1 khuy\u1EBFn m\u00E3i</label>\n                                    <input type=\"number\" name=\"priceSale\" id=\"priceSale\" class=\"form-control checkValidate\">\n                                    <p class=\"error text-red-500 text-sm font-semibold\"></p>\n                                </div>\n                            </div>\n                        </div>\n                        \n                        <div class=\" mt-8 text-center\">\n                            <div>\n                                <button class=\"btn btn-primary px-5\">TH\u00CAM</button>\n                            </div>\n                            <button class=\"btn btn-default mt-2 px-5\">\n                                <a href=\"#/products/index\" data-navigo>Cancel</a>\n                            </button>\n                        </div>\n                    </form>\n                </div>\n            </div>\n            " + footer.render() + "\n        </div>\n            ";
     };
     ProductCreate.prototype.afterRender = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -82,7 +82,7 @@ var ProductCreate = /** @class */ (function (_super) {
                         });
                         document.getElementById("category").innerHTML = resultCate;
                         document.querySelector("#form_create").addEventListener("submit", function (e) { return __awaiter(_this, void 0, void 0, function () {
-                            var inputName, name, inputCategory, category, inputPrice, price, inputPriceSale, priceSale, inputImage, image, storageRef, url, product;
+                            var inputName, name, inputCategory, category, inputPrice, price, inputPriceSale, priceSale, inputImage, image, sumCheck, checkValidate, errorValidate, i, storageRef, url, product;
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
                                     case 0:
@@ -97,6 +97,25 @@ var ProductCreate = /** @class */ (function (_super) {
                                         priceSale = inputPriceSale.value;
                                         inputImage = document.querySelector("#image");
                                         image = inputImage.files[0];
+                                        sumCheck = 0;
+                                        checkValidate = document.querySelectorAll(".checkValidate");
+                                        errorValidate = document.querySelectorAll(".error");
+                                        console.log(checkValidate);
+                                        console.log(errorValidate);
+                                        for (i = 0; i < checkValidate.length; i++) {
+                                            if (image == undefined) {
+                                                document.querySelector(".errorImg").innerHTML = "Không được để trống";
+                                                sumCheck += 1;
+                                            }
+                                            if (checkValidate[i].value.trim() == "") {
+                                                sumCheck += 1;
+                                                errorValidate[i].innerHTML = "Không được để trống";
+                                            }
+                                            else {
+                                                errorValidate[i].innerHTML = "";
+                                            }
+                                        }
+                                        if (!(sumCheck === 0)) return [3 /*break*/, 5];
                                         return [4 /*yield*/, window.firebase.storage().ref("images/" + image.name)];
                                     case 1:
                                         storageRef = _a.sent();
@@ -112,7 +131,8 @@ var ProductCreate = /** @class */ (function (_super) {
                                     case 4:
                                         _a.sent();
                                         window.location.hash = "#/products/index";
-                                        return [2 /*return*/];
+                                        _a.label = 5;
+                                    case 5: return [2 /*return*/];
                                 }
                             });
                         }); });

@@ -55,7 +55,7 @@ import { header } from "../clientComponent/header.js";
 import { banner } from "../clientComponent/banner.js";
 import { footer } from "../clientComponent/footer.js";
 import { ProductApi } from "../../api/ProductApi.js";
-import { prices, $$, productSearch } from "../../ultis.js";
+import { prices, $$, productSearch, addToCart, onLoadCartNumber, getTotalItemOnCart } from "../../ultis.js";
 var HomePage = /** @class */ (function (_super) {
     __extends(HomePage, _super);
     function HomePage() {
@@ -76,12 +76,13 @@ var HomePage = /** @class */ (function (_super) {
     };
     HomePage.prototype.afterRender = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var response, data, result, sort, filter;
+            var response, data, result, sort, filter, btns;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         productSearch();
+                        onLoadCartNumber();
                         document.querySelector("#sticky").style.position = "sticky";
                         document.querySelector("#sticky").style.top = "30px";
                         return [4 /*yield*/, ProductApi.list()];
@@ -146,6 +147,35 @@ var HomePage = /** @class */ (function (_super) {
                                         $$("#list_product").innerHTML = resultFilter;
                                         return [2 /*return*/];
                                 }
+                            });
+                        }); });
+                        btns = $$(".btn_addCart");
+                        btns.forEach(function (btn) { return __awaiter(_this, void 0, void 0, function () {
+                            var btn_id;
+                            var _this = this;
+                            return __generator(this, function (_a) {
+                                btn_id = btn.dataset.id;
+                                btn.addEventListener("click", function () { return __awaiter(_this, void 0, void 0, function () {
+                                    var responseProducts, products;
+                                    return __generator(this, function (_a) {
+                                        switch (_a.label) {
+                                            case 0:
+                                                console.log(btn_id);
+                                                return [4 /*yield*/, ProductApi.read(btn_id)];
+                                            case 1:
+                                                responseProducts = _a.sent();
+                                                return [4 /*yield*/, responseProducts.json()];
+                                            case 2:
+                                                products = _a.sent();
+                                                console.log(products);
+                                                addToCart(products.id, products.name, products.image, products.price, products.categoryId);
+                                                getTotalItemOnCart();
+                                                onLoadCartNumber();
+                                                return [2 /*return*/];
+                                        }
+                                    });
+                                }); });
+                                return [2 /*return*/];
                             });
                         }); });
                         return [2 /*return*/];

@@ -11,6 +11,8 @@ import { HomePage } from "./Components/pages/HomePage.js";
 import { CategoryPage } from "./Components/pages/CategoryPage.js";
 import { ShopCartPage } from "./Components/pages/ShopCartPage.js";
 import { ProductSearch } from "./Components/pages/ProductSearch.js";
+import { AboutPage } from "./Components/pages/AboutPage.js";
+import { ContactPage } from "./Components/pages/ContactPage.js";
 
 declare const window: any;
 
@@ -70,14 +72,24 @@ const routes = () => {
             await gui.render();
             gui.afterRender();
         })
-        .on("/shopcart", async()=>{
-            const gui:Component = new ShopCartPage();
+        .on("/shopcart", async () => {
+            const gui: Component = new ShopCartPage();
             await gui.render();
             gui.afterRender();
         })
         .on("/search/:id", async (params: Match) => {
             const id = params?.data?.id;
             const gui: Component = new ProductSearch(id);
+            await gui.render();
+            gui.afterRender();
+        })
+        .on("/about", async () => {
+            const gui: Component = new AboutPage();
+            await gui.render();
+            gui.afterRender();
+        })
+        .on("/contact", async ()=>{
+            const gui: Component = new ContactPage();
             await gui.render();
             gui.afterRender();
         })

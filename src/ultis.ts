@@ -40,3 +40,54 @@ export const productSearch = () => {
         });
     }
 };
+export const addToCart = (id: number, name: string, image: string, price: number, cateId:string) => {
+    let cartStorage = localStorage.getItem("cart");
+    let screenCart = null;
+    if (cartStorage == null) {
+        screenCart = [];
+    } else {
+        screenCart = JSON.parse(cartStorage);
+        console.log(screenCart);
+    }
+
+    let item = {
+        id: id,
+        name: name,
+        image: image,
+        price: price,
+        cateId: cateId,
+        quantity: 1
+    };
+
+    let existed = screenCart.findIndex((ele:any) => ele.id == item.id);
+    if (existed == -1) {
+        item.quantity = 1;
+        screenCart.push(item);
+    } else {
+        console.log(screenCart);
+        screenCart[existed].quantity++;
+    }
+    console.log(item);
+    localStorage.setItem("cart", JSON.stringify(screenCart));
+    alert("Thêm giỏ hàng thành công")
+};
+
+export const getTotalItemOnCart = () => {
+    let cartStorage = localStorage.getItem("cart");
+    let screenCart = null;
+    if (cartStorage == null) {
+        screenCart = [];
+    } else {
+        screenCart = JSON.parse(cartStorage);
+    }
+    let totalItems = 0;
+    screenCart.forEach((element:any) => {
+        totalItems += element.quantity;
+    });
+    localStorage.setItem("cartNumber", totalItems);
+    return totalItems;
+};
+export const onLoadCartNumber = () => {
+    let cartNumber = localStorage.getItem('cartNumber');
+    $$("#totalCart").textContent = cartNumber;
+}

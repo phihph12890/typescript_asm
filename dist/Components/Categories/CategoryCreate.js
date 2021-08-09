@@ -61,25 +61,57 @@ var CategoryCreate = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     CategoryCreate.prototype.template = function () {
-        return "\n        <div class=\"wrapper\">\n        <!-- Navbar -->\n            " + header.render() + "\n            " + sidebar.render() + "\n            <!-- Content Wrapper. Contains page content -->\n            <div id=\"root\" class=\"content-wrapper\">\n                <div class=\"col-10 offset-1 pt-5 \">\n                    <h3 class=\"text-center text-3xl font-semibold\">TH\u00CAM DANH M\u1EE4C</h3>\n                    <form action=\"\" method= \"POST\" class= \"text-center\" id=\"form_create\">\n                        <div class=\" mt-4\">\n                            <label class=\"col-2\">T\u00EAn danh m\u1EE5c</label>\n                            <input type=\"text\" name=\"name\" id=\"name\" class=\"form-control col-5 mx-auto\">\n                        </div>\n                        <div class=\" mt-8\">\n                            <div>\n                                <button class=\"btn btn-primary px-5\">TH\u00CAM</button>\n                            </div>\n                            <button class=\"btn btn-default mt-2 px-5\">\n                                <a href=\"#/categories/index\" data-navigo>Cancel</a>\n                            </button>\n                        </div>\n                    </form>\n                </div>\n            </div>\n            " + footer.render() + "\n        </div>\n            ";
+        return "\n        <div class=\"wrapper\">\n        <!-- Navbar -->\n            " + header.render() + "\n            " + sidebar.render() + "\n            <!-- Content Wrapper. Contains page content -->\n            <div id=\"root\" class=\"content-wrapper\">\n                <div class=\"col-10 offset-1 pt-5 \">\n                    <h3 class=\"text-center text-3xl font-semibold\">TH\u00CAM DANH M\u1EE4C</h3>\n                    <form action=\"\" method= \"POST\" class= \"text-center\" id=\"form_create\">\n                        <div class=\" mt-4\">\n                            <label class=\"col-2\">T\u00EAn danh m\u1EE5c</label>\n                            <input type=\"text\" name=\"name\" id=\"name\" class=\"form-control col-5 mx-auto checkValidate\">\n                            <p class=\"error text-red-500 text-sm font-semibold\"></p>\n                            <p class=\"errorName text-red-500 text-sm font-semibold\"></p>\n                        </div>\n                        <div class=\" mt-8\">\n                            <div>\n                                <button class=\"btn btn-primary px-5\">TH\u00CAM</button>\n                            </div>\n                            <button class=\"btn btn-default mt-2 px-5\">\n                                <a href=\"#/categories/index\" data-navigo>Cancel</a>\n                            </button>\n                        </div>\n                    </form>\n                </div>\n            </div>\n            " + footer.render() + "\n        </div>\n            ";
     };
     CategoryCreate.prototype.afterRender = function () {
         var _this = this;
         document.querySelector("#form_create").addEventListener("submit", function (e) { return __awaiter(_this, void 0, void 0, function () {
-            var inputName, name, category;
+            var inputName, name, sumCheck, checkValidate, errorValidate, responseCate, dataCate, check, category;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         e.preventDefault();
                         inputName = document.querySelector("#name");
                         name = inputName.value;
+                        sumCheck = 0;
+                        checkValidate = document.querySelector(".checkValidate");
+                        errorValidate = document.querySelector(".error");
+                        console.log(checkValidate);
+                        console.log(errorValidate);
+                        if (checkValidate.value.trim() == "") {
+                            sumCheck += 1;
+                            errorValidate.innerHTML = "Không được để trống";
+                        }
+                        else {
+                            errorValidate.innerHTML = "";
+                        }
+                        return [4 /*yield*/, CategoryApi.list()];
+                    case 1:
+                        responseCate = _a.sent();
+                        return [4 /*yield*/, responseCate.json()];
+                    case 2:
+                        dataCate = _a.sent();
+                        console.log(dataCate);
+                        check = 0;
+                        dataCate.forEach(function (element) {
+                            if (checkValidate.value == element.name) {
+                                check += 1;
+                            }
+                        });
+                        console.log(check);
+                        if (!(sumCheck === 0)) return [3 /*break*/, 5];
+                        if (!(check === 0)) return [3 /*break*/, 4];
                         category = new Category(0, name);
                         console.log(category);
                         return [4 /*yield*/, CategoryApi.add(category)];
-                    case 1:
+                    case 3:
                         _a.sent();
                         window.location.hash = "#/categories/index";
-                        return [2 /*return*/];
+                        return [3 /*break*/, 5];
+                    case 4:
+                        document.querySelector(".errorName").innerHTML = "Tên danh mục đã tồn tại";
+                        _a.label = 5;
+                    case 5: return [2 /*return*/];
                 }
             });
         }); });

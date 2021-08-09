@@ -52,6 +52,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 import { Component } from "../Component.js";
 import { header } from "../clientComponent/header.js";
 import { footer } from "../clientComponent/footer.js";
+import { productSearch, onLoadCartNumber } from "../../ultis.js";
 var ShopCartPage = /** @class */ (function (_super) {
     __extends(ShopCartPage, _super);
     function ShopCartPage() {
@@ -73,6 +74,8 @@ var ShopCartPage = /** @class */ (function (_super) {
     ShopCartPage.prototype.afterRender = function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
+                productSearch();
+                onLoadCartNumber();
                 return [2 /*return*/];
             });
         });

@@ -5,6 +5,7 @@ import { CategoryApi } from "../../api/CategoryApi.js";
 import { footer } from "../adminComponent/footer.js";
 import { header } from "../adminComponent/header.js";
 import { sidebar } from "../adminComponent/sidebar.js";
+// import { $$ } from "../../ultis";
 
 declare const window: any;
 
@@ -24,25 +25,29 @@ export class ProductCreate extends Component {
                             <div>
                                 <div class=" mt-4">
                                     <label class="">Tên sản phẩm</label>
-                                    <input type="text" name="name" id="name" class="form-control">
+                                    <input type="text" name="name" id="name" class="form-control checkValidate ">
+                                    <p class="error text-red-500 text-sm font-semibold"></p>
                                 </div>
                                 <div class=" mt-4">
                                     <label class="">Danh mục</label>
-                                    <select class="form-control" name="" id="category"></select>
+                                    <select class="form-control checkValidate" name="" id="category"></select>
                                 </div>
                                 <div class=" mt-4">
                                     <div><label class="">Ảnh</label></div>
-                                    <input type="file" name="image" id="image" class="">
+                                    <input type="file" name="image" id="image" class="checkImg">
+                                    <p class="error text-red-500 text-sm font-semibold errorImg"></p>
                                 </div>
                             </div>
                             <div>
                                 <div class=" mt-4">
                                     <label class="">Giá tiền</label>
-                                    <input type="number" name="price" id="price" class="form-control">
+                                    <input type="number" name="price" id="price" class="form-control checkValidate">
+                                    <p class="error text-red-500 text-sm font-semibold"></p>
                                 </div>
                                 <div class=" mt-4">
                                     <label class="">Giá khuyến mãi</label>
-                                    <input type="number" name="priceSale" id="priceSale" class="form-control">
+                                    <input type="number" name="priceSale" id="priceSale" class="form-control checkValidate">
+                                    <p class="error text-red-500 text-sm font-semibold"></p>
                                 </div>
                             </div>
                         </div>
@@ -96,14 +101,33 @@ export class ProductCreate extends Component {
             const inputImage = document.querySelector("#image") as HTMLInputElement;
             const image: File = inputImage.files![0];
 
-            const storageRef = await window.firebase.storage().ref(`images/${image.name}`);
-            await storageRef.put(image);
-            const url = await storageRef.getDownloadURL();
+            var sumCheck = 0;
+            var checkValidate: NodeListOf<HTMLInputElement> = document.querySelectorAll(".checkValidate");
+            var errorValidate: NodeListOf<HTMLElement> = document.querySelectorAll(".error");
+            console.log(checkValidate);
+            console.log(errorValidate);
+            for (let i = 0; i < checkValidate.length; i++) {
+                if (image == undefined) {
+                    document.querySelector(".errorImg")!.innerHTML = "Không được để trống";
+                    sumCheck += 1;
+                }
+                if (checkValidate[i].value.trim() == "") {
+                    sumCheck += 1;
+                    errorValidate[i].innerHTML = "Không được để trống";
+                } else {
+                    errorValidate[i].innerHTML = "";
+                }
+            }
+            if (sumCheck === 0) {
+                const storageRef = await window.firebase.storage().ref(`images/${image.name}`);
+                await storageRef.put(image);
+                const url = await storageRef.getDownloadURL();
 
-            let product: Product = new Product(0, name, category, price, priceSale, url);
-            console.log(product);
-            await ProductApi.add(product);
-            window.location.hash = "#/products/index";
+                let product: Product = new Product(0, name, category, price, priceSale, url);
+                console.log(product);
+                await ProductApi.add(product);
+                window.location.hash = "#/products/index";
+            }
         });
     }
 }

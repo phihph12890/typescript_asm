@@ -44,6 +44,8 @@ import { HomePage } from "./Components/pages/HomePage.js";
 import { CategoryPage } from "./Components/pages/CategoryPage.js";
 import { ShopCartPage } from "./Components/pages/ShopCartPage.js";
 import { ProductSearch } from "./Components/pages/ProductSearch.js";
+import { AboutPage } from "./Components/pages/AboutPage.js";
+import { ContactPage } from "./Components/pages/ContactPage.js";
 var routes = function () {
     window.router
         .on("/categories/index", function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -169,6 +171,34 @@ var routes = function () {
                     return [4 /*yield*/, gui.render()];
                 case 1:
                     _b.sent();
+                    gui.afterRender();
+                    return [2 /*return*/];
+            }
+        });
+    }); })
+        .on("/about", function () { return __awaiter(void 0, void 0, void 0, function () {
+        var gui;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    gui = new AboutPage();
+                    return [4 /*yield*/, gui.render()];
+                case 1:
+                    _a.sent();
+                    gui.afterRender();
+                    return [2 /*return*/];
+            }
+        });
+    }); })
+        .on("/contact", function () { return __awaiter(void 0, void 0, void 0, function () {
+        var gui;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    gui = new ContactPage();
+                    return [4 /*yield*/, gui.render()];
+                case 1:
+                    _a.sent();
                     gui.afterRender();
                     return [2 /*return*/];
             }
