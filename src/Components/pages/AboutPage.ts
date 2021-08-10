@@ -77,5 +77,6 @@ export class AboutPage extends Component {
     public async afterRender() {
         productSearch();
         onLoadCartNumber();
+        return `${await header.afterRender()}`
     }
 }

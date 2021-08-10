@@ -7,12 +7,18 @@ import { ProductCreate } from "./Components/Products/ProductCreate.js";
 import { ProductIndex } from "./Components/Products/ProductIndex.js";
 import { ProductEdit } from "./Components/Products/ProductEdit.js";
 
+import { UserCreate } from "./Components/Users/UserCreate.js";
+import { UserIndex } from "./Components/Users/UserIndex.js";
+import { UserEdit } from "./Components/Users/UserEdit.js";
+
 import { HomePage } from "./Components/pages/HomePage.js";
 import { CategoryPage } from "./Components/pages/CategoryPage.js";
 import { ShopCartPage } from "./Components/pages/ShopCartPage.js";
 import { ProductSearch } from "./Components/pages/ProductSearch.js";
 import { AboutPage } from "./Components/pages/AboutPage.js";
 import { ContactPage } from "./Components/pages/ContactPage.js";
+import { SignupPage } from "./Components/pages/SignupPage.js";
+import { SigninPage } from "./Components/pages/SigninPage.js";
 
 declare const window: any;
 
@@ -61,6 +67,21 @@ const routes = () => {
             await gui.render();
             gui.afterRender();
         })
+        .on("/users/index", async () => {
+            const gui: Component = new UserIndex();
+            await gui.render();
+            gui.afterRender();
+        })
+        .on("/users/create", () => {
+            const gui: Component = new UserCreate();
+            gui.render();
+        })
+        .on("/users/edit/:id", async (params: Match) => {
+            const id = params?.data?.id; //Kiểm tra trong params có data hay không?
+            const gui: Component = new UserEdit(id);
+            await gui.render();
+            gui.afterRender();
+        })
         .on("/", async () => {
             const gui: Component = new HomePage();
             await gui.render();
@@ -75,7 +96,7 @@ const routes = () => {
         .on("/shopcart", async () => {
             const gui: Component = new ShopCartPage();
             await gui.render();
-            gui.afterRender();
+            // gui.afterRender();
         })
         .on("/search/:id", async (params: Match) => {
             const id = params?.data?.id;
@@ -88,10 +109,20 @@ const routes = () => {
             await gui.render();
             gui.afterRender();
         })
-        .on("/contact", async ()=>{
+        .on("/contact", async () => {
             const gui: Component = new ContactPage();
             await gui.render();
             gui.afterRender();
+        })
+        .on("/signup", async () => {
+            const gui: Component = new SignupPage();
+            await gui.render();
+            // gui.afterRender();
+        })
+        .on("/signin", async () => {
+            const gui: Component = new SigninPage();
+            await gui.render();
+            // gui.afterRender();
         })
         .resolve();
 };

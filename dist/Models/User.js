@@ -1,10 +1,10 @@
 var User = /** @class */ (function () {
-    function User(_id, _name, _email, _password, _birthday) {
+    function User(_id, _name, _email, _password, _permission) {
         this._id = _id;
         this._name = _name;
         this._email = _email;
         this._password = _password;
-        this._birthday = _birthday;
+        this._permission = _permission;
     }
     Object.defineProperty(User.prototype, "id", {
         get: function () {
@@ -46,12 +46,12 @@ var User = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    Object.defineProperty(User.prototype, "birthday", {
+    Object.defineProperty(User.prototype, "permission", {
         get: function () {
-            return this._birthday;
+            return this._permission;
         },
-        set: function (_birthday) {
-            this._birthday = _birthday;
+        set: function (_permission) {
+            this._permission = _permission;
         },
         enumerable: false,
         configurable: true

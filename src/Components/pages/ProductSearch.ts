@@ -81,23 +81,24 @@ export class ProductSearch extends Component {
                             `;
                     })
                     .join("");
-            }
-            document.querySelector("#list_product")!.innerHTML = result;
+                }
+                document.querySelector("#list_product")!.innerHTML = result;
 
 
-            const btns = $$(".btn_addCart");
-            btns.forEach(async (btn: any) => {
-            var btn_id = btn.dataset.id;
-            btn.addEventListener("click", async () => {
-                console.log(btn_id);
-                const responseProducts = await ProductApi.read(btn_id);
-                const products = await responseProducts.json();
-                console.log(products);
-                addToCart(products.id, products.name, products.image, products.price, products.categoryId);
-                getTotalItemOnCart();
-                onLoadCartNumber();
+                const btns = $$(".btn_addCart");
+                btns.forEach(async (btn: any) => {
+                var btn_id = btn.dataset.id;
+                btn.addEventListener("click", async () => {
+                    console.log(btn_id);
+                    const responseProducts = await ProductApi.read(btn_id);
+                    const products = await responseProducts.json();
+                    console.log(products);
+                    addToCart(products.id, products.name, products.image, products.price, products.categoryId);
+                    getTotalItemOnCart();
+                    onLoadCartNumber();
+                });
             });
-        });
         }
+        return `${await header.afterRender()}`
     }
 }

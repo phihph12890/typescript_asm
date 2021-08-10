@@ -1,9 +1,9 @@
-var UserApi = /** @class */ (function () {
-    function UserApi() {
-    }
-    UserApi.signup = function (user) {
-        var url = "http://localhost:3000/signup";
-        var data = {
+import { User } from "../Models/User.js";
+
+export class UserApi {
+    public static signup(user: User) {
+        const url: string = `http://localhost:3000/signup`;
+        const data = {
             name: user.name,
             email: user.email,
             password: user.password,
@@ -16,9 +16,9 @@ var UserApi = /** @class */ (function () {
             },
             body: JSON.stringify(data),
         });
-    };
-    UserApi.signin = function (data) {
-        var url = "http://localhost:3000/signin";
+    }
+    public static signin(data: any) {
+        const url: string = `http://localhost:3000/signin`;
         return fetch(url, {
             method: "POST",
             headers: {
@@ -26,22 +26,22 @@ var UserApi = /** @class */ (function () {
             },
             body: JSON.stringify(data),
         });
-    };
-    UserApi.list = function () {
-        var url = "http://localhost:3000/users";
+    }
+    public static list() {
+        const url: string = "http://localhost:3000/users";
         return fetch(url, {
             method: "GET",
         });
-    };
-    UserApi.read = function (id) {
-        var url = "http://localhost:3000/users/" + id;
+    }
+    public static read(id: string) {
+        const url: string = `http://localhost:3000/users/${id}`;
         return fetch(url, {
             method: "GET",
         });
-    };
-    UserApi.update = function (id, newUser) {
-        var url = "http://localhost:3000/users/" + id;
-        var data = {
+    }
+    public static update(id: any, newUser: User) {
+        const url: string = `http://localhost:3000/users/${id}`;
+        const data = {
             name: newUser.name,
             email: newUser.email,
             password: newUser.password,
@@ -54,16 +54,14 @@ var UserApi = /** @class */ (function () {
             },
             body: JSON.stringify(data),
         });
-    };
-    UserApi.remove = function (id) {
-        var url = "http://localhost:3000/users/" + id;
+    }
+    public static remove(id: any) {
+        const url: string = `http://localhost:3000/users/${id}`;
         return fetch(url, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
             },
         });
-    };
-    return UserApi;
-}());
-export { UserApi };
+    }
+}

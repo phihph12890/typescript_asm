@@ -50,16 +50,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { Component } from "../Component.js";
-import { userApi } from "../../api/userApi.js";
+import { UserApi } from "../../api/UserApi.js";
+import { footer } from "../adminComponent/footer.js";
+import { header } from "../adminComponent/header.js";
+import { sidebar } from "../adminComponent/sidebar.js";
+import { $$ } from "../../ultis.js";
 var UserIndex = /** @class */ (function (_super) {
     __extends(UserIndex, _super);
     function UserIndex() {
-        var _this = _super.call(this) || this;
-        _this.listUser = [];
-        return _this;
+        return _super.call(this) || this;
     }
     UserIndex.prototype.template = function () {
-        return "\n                <div class=\"col-10 offset-1 mt-5 text-center\">\n                    <div class=\"row\">\n                        <div class=\"col-6\">\n                            <a class=\"btn btn-success\" href=\"#/users/create\" data-navigo>Create</a>\n                        </div>\n                        <div class=\"col-6\"></div>  \n                    </div>\n                    <table class=\"table table-hover \">\n                        <thead>\n                            <tr>\n                                <td>Id</td>\n                                <td>H\u1ECD t\u00EAn</td>\n                                <td>Email</td>\n                                <td>Ng\u00E0y sinh</td>\n                                <td colspan=\"2\">Thao t\u00E1c</td>\n                            </tr>\n                        </thead>\n                        <tbody id=\"tbl_users\"></tbody>\n                    </table>\n                </div>\n            ";
+        return "\n        <div class=\"wrapper\">\n        <!-- Navbar -->\n            " + header.render() + "\n            " + sidebar.render() + "\n            <!-- Content Wrapper. Contains page content -->\n            <div id=\"root\" class=\"content-wrapper\">\n            <div class=\" pt-5 text-center\">\n            <h2 class=\"text-center font-bold text-xl mb-3\">QU\u1EA2N TR\u1ECA USER</h2>\n                <div class=\"py-3\">\n                    <a href=\"#/users/create\"><button class=\"btn btn-success\" type=\"button\">Th\u00EAm User</button></a>\n                </div>\n                <table class=\"table table-hover \">\n                    <thead>\n                        <tr>\n                            <th>ID</th>\n                            <th>T\u00CAN</th>\n                            <th>EMAIL</th>\n                            <th>QUY\u1EC0N H\u1EA0N</th>\n                            <th colspan=\"2\" style=\"width: 200px\">Thao t\u00E1c</th>\n                        </tr>\n                    </thead>\n                    <tbody id=\"tbl_products\"></tbody>\n                </table>\n            </div>\n            </div>\n            " + footer.render() + "\n        </div>\n        ";
     };
     UserIndex.prototype.afterRender = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -67,7 +69,7 @@ var UserIndex = /** @class */ (function (_super) {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, userApi.all()];
+                    case 0: return [4 /*yield*/, UserApi.list()];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.json()];
@@ -76,32 +78,49 @@ var UserIndex = /** @class */ (function (_super) {
                         console.log(data);
                         tbodyContents = data
                             .map(function (value, key) {
-                            return "\n                    <tr>\n                        <td>" + value.id + "</td>\n                        <td>" + value.name + "</td>\n                        <td>" + value.email + "</td>\n                        <td>" + value.birthday + "</td>\n                        <td>\n                            <a class=\"btn btn-primary\" href=\"#/users/edit/" + value.id + "\" data-navigo>Update</a>\n                        </td>\n                        <td>\n                            <a class=\"btn btn-danger\" href=\"#/users/delete/" + value.id + "\" data-navigo data-id=\"" + value.id + "\">Delete</a>\n                        </td>\n                    </tr>\n                ";
+                            return "\n                    <tr>\n                        <td class=\"\">" + value.id + "</td>\n                        <td style=\"width:300px\">" + value.name + "</td>\n                        <td class=\"\">" + value.email + "</td>\n                        <td class=\"font-semibold text-red-500\">" + value.permission + "</td>\n                        <td>\n                            <a class=\"btn btn-primary\" href=\"#/users/edit/" + value.id + "\" data-navigo>Update</a>\n                        </td>\n                        <td>\n                            <a class=\"btn btn-danger\" href=\"#/users/delete/" + value.id + "\" data-navigo data-id=\"" + value.id + "\">Delete</a>\n                        </td>\n                    </tr>\n                ";
                         })
                             .join("");
-                        document.querySelector("#tbl_users").innerHTML = tbodyContents;
-                        listBtnDel = document.querySelectorAll(".btn-danger");
+                        document.querySelector("#tbl_products").innerHTML = tbodyContents;
+                        listBtnDel = $$(".btn-danger");
                         console.log(listBtnDel);
-                        listBtnDel.forEach(function (btn) {
-                            var id = btn.dataset.id;
-                            btn.addEventListener("click", function (e) { return __awaiter(_this, void 0, void 0, function () {
-                                var Confirm;
-                                return __generator(this, function (_a) {
-                                    switch (_a.label) {
-                                        case 0:
-                                            e.preventDefault();
-                                            Confirm = confirm("Bạn có thật sự muốn xoá?");
-                                            if (!Confirm) return [3 /*break*/, 2];
-                                            return [4 /*yield*/, userApi.delete(id)];
-                                        case 1:
-                                            _a.sent();
-                                            window.location.hash = "#/users/index";
-                                            _a.label = 2;
-                                        case 2: return [2 /*return*/];
-                                    }
-                                });
-                            }); });
-                        });
+                        listBtnDel.forEach(function (btn) { return __awaiter(_this, void 0, void 0, function () {
+                            var id;
+                            var _this = this;
+                            return __generator(this, function (_a) {
+                                id = btn.dataset.id;
+                                console.log(id);
+                                btn.addEventListener("click", function (e) { return __awaiter(_this, void 0, void 0, function () {
+                                    var responseUser, user, Confirm;
+                                    return __generator(this, function (_a) {
+                                        switch (_a.label) {
+                                            case 0:
+                                                e.preventDefault();
+                                                return [4 /*yield*/, UserApi.read(id)];
+                                            case 1:
+                                                responseUser = _a.sent();
+                                                return [4 /*yield*/, responseUser.json()];
+                                            case 2:
+                                                user = _a.sent();
+                                                console.log(user);
+                                                if (!(user.permission == "ADMIN")) return [3 /*break*/, 3];
+                                                alert("Không thể xoá tài khoản ADMIN!");
+                                                return [3 /*break*/, 5];
+                                            case 3:
+                                                Confirm = confirm("Bạn có thật sự muốn xoá tài khoản này?");
+                                                if (!Confirm) return [3 /*break*/, 5];
+                                                return [4 /*yield*/, UserApi.remove(id)];
+                                            case 4:
+                                                _a.sent();
+                                                window.location.hash = "#/users/index";
+                                                _a.label = 5;
+                                            case 5: return [2 /*return*/];
+                                        }
+                                    });
+                                }); });
+                                return [2 /*return*/];
+                            });
+                        }); });
                         return [2 /*return*/];
                 }
             });

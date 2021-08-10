@@ -102,5 +102,6 @@ export class CategoryPage extends Component {
                 onLoadCartNumber();
             });
         });
+        return `${await header.afterRender()}`
     }
 }

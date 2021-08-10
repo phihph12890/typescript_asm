@@ -52,7 +52,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 import { Component } from "../Component.js";
 import { header } from "../clientComponent/header.js";
 import { footer } from "../clientComponent/footer.js";
-import { productSearch } from "../../ultis.js";
+import { productSearch, onLoadCartNumber } from "../../ultis.js";
 var ContactPage = /** @class */ (function (_super) {
     __extends(ContactPage, _super);
     function ContactPage() {
@@ -73,9 +73,17 @@ var ContactPage = /** @class */ (function (_super) {
     };
     ContactPage.prototype.afterRender = function () {
         return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                productSearch();
-                return [2 /*return*/];
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        productSearch();
+                        productSearch();
+                        onLoadCartNumber();
+                        _a = "";
+                        return [4 /*yield*/, header.afterRender()];
+                    case 1: return [2 /*return*/, _a + (_b.sent())];
+                }
             });
         });
     };

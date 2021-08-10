@@ -51,7 +51,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 import { Component } from "../Component.js";
 import { User } from "../../Models/User.js";
-import { userApi } from "../../api/userApi.js";
+import { UserApi } from "../../api/UserApi.js";
+import { footer } from "../adminComponent/footer.js";
+import { header } from "../adminComponent/header.js";
+import { sidebar } from "../adminComponent/sidebar.js";
 var UserEdit = /** @class */ (function (_super) {
     __extends(UserEdit, _super);
     function UserEdit(id) {
@@ -60,62 +63,54 @@ var UserEdit = /** @class */ (function (_super) {
         return _this;
     }
     UserEdit.prototype.template = function () {
-        return "\n                <div class=\"col-10 offset-1 mt-5 \">\n                    <h3 class=\"text-center text-3xl font-semibold\">USER EDIT</h3>\n                    <form action=\"\" method= \"POST\" class= \"row\" id=\"form_edit\">\n                        <div class=\"row mt-4\">\n                            <label class=\"col-2\">H\u1ECD T\u00EAn</label>\n                            <input type=\"text\" name=\"name\" id=\"name\" class=\"form-control col-10\">\n                        </div>\n                        <div class=\"row mt-4\">\n                            <label class=\"col-2\">Email</label>\n                            <input type=\"email\" name=\"email\" id=\"email\" class=\"form-control col-10\">\n                        </div>\n                        <div class=\"row mt-4\">\n                            <label class=\"col-2\">M\u1EADt kh\u1EA9u</label>\n                            <input type=\"password\" name=\"password\" id=\"password\" class=\"form-control col-10\">\n                        </div>\n                        <div class=\"row mt-4\">\n                            <label class=\"col-2\">X\u00E1c nh\u1EADn m\u1EADt kh\u1EA9u</label>\n                            <input type=\"password\" name=\"password_confirm\" id=\"password_confirm\" class=\"form-control col-10\">\n                        </div>\n                        <div class=\"row mt-4\">\n                            <label class=\"col-2\">Ng\u00E0y sinh</label>\n                            <input type=\"date\" name=\"birthday\" id=\"birthday\" class=\"form-control col-10\">\n                        </div>\n                        <div class=\"row mt-8\">\n                            <button class=\"btn btn-primary\">Update</button>\n                            <button class=\"btn btn-default\">Cancel</button>\n                        </div>\n                    </form>\n                </div>\n            ";
+        return "\n        <div class=\"wrapper\">\n        <!-- Navbar -->\n            " + header.render() + "\n            " + sidebar.render() + "\n            <!-- Content Wrapper. Contains page content -->\n            <div id=\"root\" class=\"content-wrapper pb-5\">\n                <div class=\"col-10 offset-1 pt-5 \">\n                    <h3 class=\"text-center font-bold pb-5 pt-4 text-xl\">C\u1EACP NH\u1EACT USER</h3>\n                    <form id=\"form_editUser\" class=\"text-center\">\n                        <div class=\"\">\n                            <p class=\"mb-3 font-semibold\"><i class=\"fas fa-user-tag mr-2\"></i>Full Name</p><input class=\"px-3 py-1 rounded-md checkValidate\" style=\"width:330px;\" type=\"text\" id=\"name\">\n                            <p class=\"error text-red-500 text-sm font-semibold\"></p>\n                            <p class=\"mb-3 mt-5 font-semibold\"><i class=\"fas fa-user-circle mr-2\"></i>Email</p><input class=\"px-3 py-1 rounded-md checkValidate border\" style=\"width:330px;\" type=\"email\" id=\"email\" disabled>\n                            <p class=\"error text-red-500 text-sm font-semibold\"></p>\n                        </div>\n                        <div class=\"text-center mt-3\">\n                            <p class=\" mt-5 font-semibold\"><i class=\"fas fa-user-shield mr-2\"></i>Quy\u1EC1n h\u1EA1n</p>\n                            <select id=\"permission\" class=\"w-64 mt-3 h-8 rounded-md px-2\">\n                                <option value=\"KH\u00C1CH H\u00C0NG\">Kh\u00E1ch h\u00E0ng</option>\n                                <option value=\"ADMIN\">Qu\u1EA3n tr\u1ECB</option>\n                            </select>\n                        </div>\n                        <div id=\"alert\" class=\"mt-3 text-center mx-auto\" style=\"width: 350px;\" role=\"alert\"></div>\n                        <div class=\"text-center mt-3\">\n                            <input class=\"mb-4 px-5 py-1 rounded-lg font-semibold bg-blue-500 btn btn-primary\" type=\"submit\" value=\"C\u1EACP NH\u1EACT\" id=\"btn_signup\" style=\"margin-top: 20px;\">\n                        </div>\n                    </form>\n                </div>\n            </div>\n            " + footer.render() + "\n        </div>\n            ";
     };
     UserEdit.prototype.afterRender = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var response, data;
+            var response, data_1;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         if (!(typeof this._id != "undefined")) return [3 /*break*/, 3];
-                        return [4 /*yield*/, userApi.find(this._id)];
+                        console.log("this._id", this._id);
+                        return [4 /*yield*/, UserApi.read(this._id)];
                     case 1:
                         response = _a.sent();
                         return [4 /*yield*/, response.json()];
                     case 2:
-                        data = _a.sent();
-                        console.log(data);
-                        document.querySelector("#name").value = data.name;
-                        document.querySelector("#email").value = data.email;
-                        document.querySelector("#password").value = data.password;
-                        document.querySelector("#password_confirm").value = data.password;
-                        document.querySelector("#birthday").value = data.birthday;
-                        _a.label = 3;
-                    case 3:
-                        document.querySelector("#form_edit").addEventListener("submit", function (e) { return __awaiter(_this, void 0, void 0, function () {
-                            var inputName, name, inputEmail, email, inputPassword, password, inputPasswordConfirm, password_confirm, inputBirthday, birthdayStr, birthday, user;
+                        data_1 = _a.sent();
+                        console.log(data_1);
+                        document.querySelector("#name").value = data_1.name;
+                        document.querySelector("#email").value = data_1.email;
+                        document.querySelector("#form_editUser").addEventListener("submit", function (e) { return __awaiter(_this, void 0, void 0, function () {
+                            var inputName, name, inputPermission, permission, user;
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
                                     case 0:
                                         e.preventDefault();
+                                        //Cách 1: Type Casting: < >
+                                        // const inputName = <HTMLInputElement>document.querySelector("#name");
+                                        //Cách 2: as
+                                        if (typeof this._id === "undefined") {
+                                            return [2 /*return*/];
+                                        }
                                         inputName = document.querySelector("#name");
                                         name = inputName.value;
-                                        inputEmail = document.querySelector("#email");
-                                        email = inputEmail.value;
-                                        inputPassword = document.querySelector("#password");
-                                        password = inputPassword.value;
-                                        inputPasswordConfirm = document.querySelector("#password_confirm");
-                                        password_confirm = inputPasswordConfirm.value;
-                                        inputBirthday = document.querySelector("#birthday");
-                                        birthdayStr = inputBirthday.value;
-                                        birthday = new Date(birthdayStr);
-                                        if (!(password != password_confirm)) return [3 /*break*/, 1];
-                                        alert("Mật khẩu chưa trùng nhau");
-                                        return [3 /*break*/, 3];
+                                        inputPermission = document.querySelector("#permission");
+                                        permission = inputPermission.value;
+                                        user = new User(+this._id, name, data_1.email, data_1.password, permission);
+                                        console.log(user);
+                                        return [4 /*yield*/, UserApi.update(this._id, user)];
                                     case 1:
-                                        user = new User(0, name, email, password, birthday);
-                                        return [4 /*yield*/, userApi.update(this._id, user)];
-                                    case 2:
                                         _a.sent();
                                         window.location.hash = "#/users/index";
-                                        _a.label = 3;
-                                    case 3: return [2 /*return*/];
+                                        return [2 /*return*/];
                                 }
                             });
                         }); });
-                        return [2 /*return*/];
+                        _a.label = 3;
+                    case 3: return [2 /*return*/];
                 }
             });
         });

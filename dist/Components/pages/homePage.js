@@ -76,10 +76,10 @@ var HomePage = /** @class */ (function (_super) {
     };
     HomePage.prototype.afterRender = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var response, data, result, sort, filter, btns;
+            var response, data, result, sort, filter, btns, _a;
             var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
                         productSearch();
                         onLoadCartNumber();
@@ -87,10 +87,10 @@ var HomePage = /** @class */ (function (_super) {
                         document.querySelector("#sticky").style.top = "30px";
                         return [4 /*yield*/, ProductApi.list()];
                     case 1:
-                        response = _a.sent();
+                        response = _b.sent();
                         return [4 /*yield*/, response.json()];
                     case 2:
-                        data = _a.sent();
+                        data = _b.sent();
                         console.log(data);
                         result = data
                             .map(function (product) {
@@ -101,7 +101,8 @@ var HomePage = /** @class */ (function (_super) {
                         sort = $$("#sort");
                         console.log(sort);
                         sort.addEventListener("change", function () { return __awaiter(_this, void 0, void 0, function () {
-                            var valueSort, responseProductSort, productSort, resultSort;
+                            var valueSort, responseProductSort, productSort, resultSort, btns;
+                            var _this = this;
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
                                     case 0:
@@ -119,6 +120,35 @@ var HomePage = /** @class */ (function (_super) {
                                         })
                                             .join("");
                                         $$("#list_product").innerHTML = resultSort;
+                                        btns = $$(".btn_addCart");
+                                        btns.forEach(function (btn) { return __awaiter(_this, void 0, void 0, function () {
+                                            var btn_id;
+                                            var _this = this;
+                                            return __generator(this, function (_a) {
+                                                btn_id = btn.dataset.id;
+                                                btn.addEventListener("click", function () { return __awaiter(_this, void 0, void 0, function () {
+                                                    var responseProducts, products;
+                                                    return __generator(this, function (_a) {
+                                                        switch (_a.label) {
+                                                            case 0:
+                                                                console.log(btn_id);
+                                                                return [4 /*yield*/, ProductApi.read(btn_id)];
+                                                            case 1:
+                                                                responseProducts = _a.sent();
+                                                                return [4 /*yield*/, responseProducts.json()];
+                                                            case 2:
+                                                                products = _a.sent();
+                                                                console.log(products);
+                                                                addToCart(products.id, products.name, products.image, products.price, products.categoryId);
+                                                                getTotalItemOnCart();
+                                                                onLoadCartNumber();
+                                                                return [2 /*return*/];
+                                                        }
+                                                    });
+                                                }); });
+                                                return [2 /*return*/];
+                                            });
+                                        }); });
                                         return [2 /*return*/];
                                 }
                             });
@@ -126,7 +156,8 @@ var HomePage = /** @class */ (function (_super) {
                         filter = $$("#filter");
                         console.log(filter);
                         filter.addEventListener("change", function () { return __awaiter(_this, void 0, void 0, function () {
-                            var valueFilter, valueFilter1, valueFilter2, responseProductFilter, productFilter, resultFilter;
+                            var valueFilter, valueFilter1, valueFilter2, responseProductFilter, productFilter, resultFilter, btns;
+                            var _this = this;
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
                                     case 0:
@@ -145,6 +176,35 @@ var HomePage = /** @class */ (function (_super) {
                                         })
                                             .join("");
                                         $$("#list_product").innerHTML = resultFilter;
+                                        btns = $$(".btn_addCart");
+                                        btns.forEach(function (btn) { return __awaiter(_this, void 0, void 0, function () {
+                                            var btn_id;
+                                            var _this = this;
+                                            return __generator(this, function (_a) {
+                                                btn_id = btn.dataset.id;
+                                                btn.addEventListener("click", function () { return __awaiter(_this, void 0, void 0, function () {
+                                                    var responseProducts, products;
+                                                    return __generator(this, function (_a) {
+                                                        switch (_a.label) {
+                                                            case 0:
+                                                                console.log(btn_id);
+                                                                return [4 /*yield*/, ProductApi.read(btn_id)];
+                                                            case 1:
+                                                                responseProducts = _a.sent();
+                                                                return [4 /*yield*/, responseProducts.json()];
+                                                            case 2:
+                                                                products = _a.sent();
+                                                                console.log(products);
+                                                                addToCart(products.id, products.name, products.image, products.price, products.categoryId);
+                                                                getTotalItemOnCart();
+                                                                onLoadCartNumber();
+                                                                return [2 /*return*/];
+                                                        }
+                                                    });
+                                                }); });
+                                                return [2 /*return*/];
+                                            });
+                                        }); });
                                         return [2 /*return*/];
                                 }
                             });
@@ -178,7 +238,9 @@ var HomePage = /** @class */ (function (_super) {
                                 return [2 /*return*/];
                             });
                         }); });
-                        return [2 /*return*/];
+                        _a = "";
+                        return [4 /*yield*/, header.afterRender()];
+                    case 3: return [2 /*return*/, _a + (_b.sent())];
                 }
             });
         });

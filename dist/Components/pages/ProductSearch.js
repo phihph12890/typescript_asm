@@ -77,10 +77,10 @@ var ProductSearch = /** @class */ (function (_super) {
     };
     ProductSearch.prototype.afterRender = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var responseProductSearch, productSearch_1, result, btns;
+            var responseProductSearch, productSearch_1, result, btns, _a;
             var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
                         productSearch();
                         onLoadCartNumber();
@@ -91,10 +91,10 @@ var ProductSearch = /** @class */ (function (_super) {
                         console.log(this._id);
                         return [4 /*yield*/, ProductApi.search(this._id)];
                     case 1:
-                        responseProductSearch = _a.sent();
+                        responseProductSearch = _b.sent();
                         return [4 /*yield*/, responseProductSearch.json()];
                     case 2:
-                        productSearch_1 = _a.sent();
+                        productSearch_1 = _b.sent();
                         console.log(productSearch_1);
                         result = void 0;
                         if (productSearch_1.length == 0) {
@@ -136,8 +136,11 @@ var ProductSearch = /** @class */ (function (_super) {
                                 return [2 /*return*/];
                             });
                         }); });
-                        _a.label = 3;
-                    case 3: return [2 /*return*/];
+                        _b.label = 3;
+                    case 3:
+                        _a = "";
+                        return [4 /*yield*/, header.afterRender()];
+                    case 4: return [2 /*return*/, _a + (_b.sent())];
                 }
             });
         });

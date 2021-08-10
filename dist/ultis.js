@@ -78,6 +78,12 @@ export var reRender = function (component, position) {
         });
     });
 };
+// export const authenticated = (accessToken:any) => {
+//     const user = jwt_decode(accessToken);
+//     if (typeof window !== 'undefined') {
+//         return localStorage.setItem('user', JSON.stringify(user));
+//     }
+// }
 export var isAuthenticated = function () {
     if (typeof window == "undefined") {
         return false;
@@ -87,6 +93,22 @@ export var isAuthenticated = function () {
     }
     else {
         return false;
+    }
+};
+export var logout = function () {
+    if (localStorage.getItem("user")) {
+        return localStorage.removeItem("user");
+    }
+};
+export var clickLogout = function () {
+    if (document.querySelector("#logout") != undefined) {
+        document.querySelector("#logout").onclick = function () {
+            logout();
+            localStorage.removeItem("cartNumber");
+            localStorage.removeItem("cart");
+            localStorage.removeItem("totalPrice");
+            window.location.hash = "/signin";
+        };
     }
 };
 export var productSearch = function () {
@@ -114,7 +136,7 @@ export var addToCart = function (id, name, image, price, cateId) {
         image: image,
         price: price,
         cateId: cateId,
-        quantity: 1
+        quantity: 1,
     };
     var existed = screenCart.findIndex(function (ele) { return ele.id == item.id; });
     if (existed == -1) {
@@ -142,10 +164,13 @@ export var getTotalItemOnCart = function () {
     screenCart.forEach(function (element) {
         totalItems += element.quantity;
     });
-    localStorage.setItem("cartNumber", totalItems);
+    var totalItemss = String(totalItems);
+    localStorage.setItem("cartNumber", totalItemss);
     return totalItems;
 };
 export var onLoadCartNumber = function () {
-    var cartNumber = localStorage.getItem('cartNumber');
+    var cartNumber = localStorage.getItem("cartNumber");
     $$("#totalCart").textContent = cartNumber;
+};
+export var addToOrder = function (id, userId, name, email, address, phoneNumber, note, totalPrice, cartNumber, cart, status, create_at) {
 };

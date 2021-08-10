@@ -79,10 +79,10 @@ var CategoryPage = /** @class */ (function (_super) {
     };
     CategoryPage.prototype.afterRender = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var screenCategory, responseCate, category, resultCate, responseProducts, products, resultProducts, btns;
+            var screenCategory, responseCate, category, resultCate, responseProducts, products, resultProducts, btns, _a;
             var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
+            return __generator(this, function (_b) {
+                switch (_b.label) {
                     case 0:
                         productSearch();
                         onLoadCartNumber();
@@ -98,20 +98,20 @@ var CategoryPage = /** @class */ (function (_super) {
                         });
                         return [4 /*yield*/, CategoryApi.read(this._id)];
                     case 1:
-                        responseCate = _a.sent();
+                        responseCate = _b.sent();
                         return [4 /*yield*/, responseCate.json()];
                     case 2:
-                        category = _a.sent();
+                        category = _b.sent();
                         console.log(category); // Gọi API category hiện tại đang truy cập
                         resultCate = "" + category.name;
                         console.log(resultCate);
                         document.querySelector("#cate").innerHTML = resultCate;
                         return [4 /*yield*/, ProductApi.list()];
                     case 3:
-                        responseProducts = _a.sent();
+                        responseProducts = _b.sent();
                         return [4 /*yield*/, responseProducts.json()];
                     case 4:
-                        products = _a.sent();
+                        products = _b.sent();
                         console.log(products);
                         resultProducts = products
                             .filter(function (product) { return product.categoryId == _this._id; })
@@ -120,7 +120,7 @@ var CategoryPage = /** @class */ (function (_super) {
                         })
                             .join("");
                         document.querySelector("#list_product").innerHTML = resultProducts;
-                        _a.label = 5;
+                        _b.label = 5;
                     case 5:
                         btns = $$(".btn_addCart");
                         btns.forEach(function (btn) { return __awaiter(_this, void 0, void 0, function () {
@@ -151,7 +151,9 @@ var CategoryPage = /** @class */ (function (_super) {
                                 return [2 /*return*/];
                             });
                         }); });
-                        return [2 /*return*/];
+                        _a = "";
+                        return [4 /*yield*/, header.afterRender()];
+                    case 6: return [2 /*return*/, _a + (_b.sent())];
                 }
             });
         });

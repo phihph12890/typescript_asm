@@ -73,10 +73,16 @@ var AboutPage = /** @class */ (function (_super) {
     };
     AboutPage.prototype.afterRender = function () {
         return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                productSearch();
-                onLoadCartNumber();
-                return [2 /*return*/];
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        productSearch();
+                        onLoadCartNumber();
+                        _a = "";
+                        return [4 /*yield*/, header.afterRender()];
+                    case 1: return [2 /*return*/, _a + (_b.sent())];
+                }
             });
         });
     };

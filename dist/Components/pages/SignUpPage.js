@@ -50,26 +50,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { Component } from "../Component.js";
-import { User } from "../../Models/User.js";
-import { UserApi } from "../../api/UserApi.js";
-import { footer } from "../adminComponent/footer.js";
-import { header } from "../adminComponent/header.js";
-import { sidebar } from "../adminComponent/sidebar.js";
 import { $$ } from "../../ultis.js";
-var UserCreate = /** @class */ (function (_super) {
-    __extends(UserCreate, _super);
-    function UserCreate() {
+import { UserApi } from "../../api/UserApi.js";
+import { User } from "../../Models/User.js";
+var SignupPage = /** @class */ (function (_super) {
+    __extends(SignupPage, _super);
+    function SignupPage() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    UserCreate.prototype.template = function () {
-        return "\n        <div class=\"wrapper\">\n        <!-- Navbar -->\n            " + header.render() + "\n            " + sidebar.render() + "\n            <!-- Content Wrapper. Contains page content -->\n            <div id=\"root\" class=\"content-wrapper\">\n                <div class=\"col-10 offset-1 pt-5 \">\n                    <h3 class=\"text-center font-bold pb-5 pt-4 text-xl\">TH\u00CAM USER</h3>\n                    <form id=\"form_addUser\">\n                        <div class=\"grid grid-cols-2 \">\n                            <div class=\" col-span-1\" style=\"margin-left:180px;\">\n                                <p class=\"mb-3 font-semibold\"><i class=\"fas fa-user-tag mr-2\"></i>Full Name</p><input class=\"px-2 py-1 rounded-md checkValidate\" style=\"width:330px;\" type=\"text\" id=\"name\">\n                                <p class=\"error text-red-500 text-sm font-semibold\"></p>\n                                <p class=\"mb-3 mt-5 font-semibold\"><i class=\"fas fa-user-circle mr-2\"></i>Email</p><input class=\"px-2 py-1 rounded-md checkValidate\" style=\"width:330px;\" type=\"email\" id=\"email\">\n                                <p class=\"error text-red-500 text-sm font-semibold\"></p>\n                            </div>\n                            <div class=\"ml-16 col-span-1\">\n                                <p class=\"  mb-3 font-semibold\"><i class=\"fas fa-key mr-2\"></i>Password</p><input class=\"px-2 py-1 rounded-md checkValidate\" style=\"width:330px;\" type=\"password\" id=\"password\" minlength=\"6\"> <br>\n                                <p class=\"error text-red-500 text-sm font-semibold\"></p>\n                                <p class=\" mt-5  mb-3 font-semibold\"><i class=\"fas fa-key mr-2\"></i>Conffirm Password</p><input class=\"px-2 py-1 rounded-md checkValidate\" style=\"width:330px;\" type=\"password\" id=\"repassword\" minlength=\"6\"> <br>\n                                <p class=\"error text-red-500 text-sm font-semibold\"></p>\n                                <p class=\"errorRepassword text-red-500 text-sm font-semibold\"></p>\n                            </div>\n                        </div>\n                        <div class=\"text-center mt-3\">\n                            <p class=\" mt-5 font-semibold\"><i class=\"fas fa-user-shield mr-2\"></i>Quy\u1EC1n h\u1EA1n</p>\n                            <select id=\"permission\" class=\"w-64 mt-3 h-8 rounded-md\">\n                                <option value=\"KH\u00C1CH H\u00C0NG\">Kh\u00E1ch h\u00E0ng</option>\n                                <option value=\"ADMIN\">Qu\u1EA3n tr\u1ECB</option>\n                            </select>\n                        </div>\n                        <div id=\"alert\" class=\"mt-3 text-center mx-auto\" style=\"width: 350px;\" role=\"alert\"></div>\n                        <div class=\"text-center mt-3\">\n                            <input class=\"mb-4 px-5 py-1 rounded-lg font-semibold bg-blue-500 btn btn-primary\" type=\"submit\" value=\"\u0110\u0102NG K\u00DD\" id=\"btn_signup\" style=\"margin-top: 20px;\">\n                        </div>\n                    </form>\n                </div>\n            </div>\n            " + footer.render() + "\n        </div>\n            ";
+    SignupPage.prototype.template = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, "\n        <div class=\"container mx-auto bg-gray-200 border border-gray-300 mt-24\" style=\"width:600px;\" >\n            <form action=\"\" id=\"form_addUser\">\n                <h2 class=\"text-center pt-5 text-3xl font-semibold\">\u0110\u0102NG K\u00DD</h2>\n                <div class=\"ml-32 mt-5\">\n                    <p class=\"mb-1\"><i class=\"fas fa-user-tag mr-2\"></i>Full Name</p><input class=\"px-2 py-1 rounded-md checkValidate\" style=\"width:330px;\" type=\"text\" id=\"name\">\n                    <p class=\"error text-red-500 text-sm font-semibold\"></p>\n                    <p class=\"mb-1 mt-3\"><i class=\"fas fa-user-circle mr-2\"></i>Email</p><input class=\"px-2 py-1 rounded-md checkValidate\" style=\"width:330px;\" type=\"email\" id=\"email\">\n                    <p class=\"error text-red-500 text-sm font-semibold\"></p>\n                    <p class=\"mt-3  mb-1\"><i class=\"fas fa-key mr-2\"></i>Password</p><input class=\"px-2 py-1 rounded-md checkValidate\" style=\"width:330px;\" type=\"password\" id=\"password\" minlength=\"6\"> <br>\n                    <p class=\"error text-red-500 text-sm font-semibold\"></p>\n                    <p class=\"mt-3  mb-1\"><i class=\"fas fa-key mr-2\"></i>Conffirm Password</p><input class=\"px-2 py-1 rounded-md checkValidate\" style=\"width:330px;\" type=\"password\" id=\"repassword\" minlength=\"6\"> <br>\n                    <p class=\"error text-red-500 text-sm font-semibold\"></p>\n                    <p class=\"errorRepassword text-red-500 text-sm font-semibold mx-auto\"></p>\n                </div>\n                <div id=\"alert\" class=\"mt-3 text-center mx-auto\" style=\"width: 350px;\" role=\"alert\"></div>\n                <div class=\"text-center mt-3\">\n                    <input class=\"mb-4 px-5 py-1 rounded-lg font-semibold bg-blue-500 btn btn-primary\" type=\"submit\" value=\"\u0110\u0102NG K\u00DD\" id=\"btn_signup\" style=\"margin-top: 20px;\">\n                </div>\n                <div class=\"text-center\">\n                    <button class=\"mb-5 px-5 py-1 rounded-lg font-semibold bg-blue-500 mx-auto btn btn-primary\"><a href=\"/\" class=\"hover:text-gray-300\">Tr\u1EDF v\u1EC1 trang ch\u1EE7</a></button>\n                </div>\n                <div class=\"text-center border-t border-gray-300\">\n                    <div class=\"hover:bg-gray-300 py-2\"><button class=\"font-semibold\"><a href=\"/#/signin\">\u0110\u00E3 c\u00F3 t\u00E0i kho\u1EA3n? \u0110\u0103ng nh\u1EADp ngay</a></button></div>\n                    \n                </div>\n            </form>\n        </div>\n        "];
+            });
+        });
     };
-    UserCreate.prototype.afterRender = function () {
+    SignupPage.prototype.afterRender = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                document.querySelector("#form_addUser").addEventListener("submit", function (e) { return __awaiter(_this, void 0, void 0, function () {
-                    var inputName, name, inputEmail, email, inputPassword, password, inputRepassword, repassword, inputPermissions, permission, sumCheck, checkValidate, errorValidate, i, user;
+                $$("#form_addUser").addEventListener("submit", function (e) { return __awaiter(_this, void 0, void 0, function () {
+                    var inputName, name, inputEmail, email, inputPassword, password, inputRepassword, repassword, newUser, sumCheck, checkValidate, errorValidate, i, user;
                     return __generator(this, function (_a) {
                         e.preventDefault();
                         inputName = document.querySelector("#name");
@@ -80,13 +81,16 @@ var UserCreate = /** @class */ (function (_super) {
                         password = inputPassword.value;
                         inputRepassword = document.querySelector("#repassword");
                         repassword = inputRepassword.value;
-                        inputPermissions = document.querySelector("#permission");
-                        permission = inputPermissions.value;
                         console.log(name);
                         console.log(email);
                         console.log(password);
                         console.log(repassword);
-                        console.log(permission);
+                        newUser = {
+                            name: $$("#name").value,
+                            email: $$("#email").value,
+                            password: $$("#password").value,
+                            permission: "KHÁCH HÀNG",
+                        };
                         sumCheck = 0;
                         checkValidate = $$(".checkValidate");
                         errorValidate = $$(".error");
@@ -102,17 +106,23 @@ var UserCreate = /** @class */ (function (_super) {
                         }
                         if (sumCheck === 0) {
                             if (password == repassword) {
-                                user = new User(0, name, email, password, permission);
+                                user = new User(0, name, email, password, "KHÁCH HÀNG");
                                 console.log(user);
                                 UserApi.signup(user)
                                     .then(function (response) {
-                                    return response.json();
+                                    if (response.status == 400) {
+                                        $$("#alert").innerHTML = "\n                            <div class=\"alert bg-red-400 text-white\">\n                                Email \u0111\u00E3 t\u1ED3n t\u1EA1i!\n                            </div>\n                        ";
+                                    }
+                                    else {
+                                        alert("Đăng ký thành công!");
+                                        window.location.hash = "/signin";
+                                    }
                                 })
-                                    .then(function (data) {
-                                    console.log(data);
-                                    alert("Đăng ký thành công!");
-                                    window.location.hash = "/users/index";
-                                })
+                                    // .then((data) => {
+                                    //     console.log(data);
+                                    //     alert("Đăng ký thành công!");
+                                    //     window.location.hash = "/signin"
+                                    // })
                                     .catch(function (error) {
                                     console.log(error);
                                     $$("#alert").innerHTML = "\n                            <div class=\"alert bg-red-400 text-white\">\n                                " + error.response.data + "\n                            </div>\n                        ";
@@ -132,6 +142,6 @@ var UserCreate = /** @class */ (function (_super) {
             });
         });
     };
-    return UserCreate;
+    return SignupPage;
 }(Component));
-export { UserCreate };
+export { SignupPage };

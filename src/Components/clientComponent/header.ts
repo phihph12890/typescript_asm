@@ -1,5 +1,7 @@
+import { clickLogout, isAuthenticated } from "../../ultis.js";
+
 export const header = {
-    render() {
+    render() {  
         return /*html */ `
             <div class="header bg-gray-100">
             <div class=" container mx-auto flex py-1 justify-between items-center " style="max-width: 1200px;">
@@ -31,12 +33,8 @@ export const header = {
                                 <span class="absolute rounded-full px-1.5 bg-red-600 text-sm text-white" id="totalCart" style="top:20px;margin-left:3px"></span>
                             </a>
                         </div>
-                        <div class="ml-5">
-                            <a  class="ml-2" href="#/products/index"><span class="text-red-600 text-lg"><i class="fas fa-user"></i></span>
-                            <p id="login" class="text-sm font-medium">Login</p></a>
-                        </div>
+                        <div id="user"></div>
                     </div>
-                    
                 </div>
             </div>
         </div>
@@ -51,5 +49,55 @@ export const header = {
             </div>
         </div>
         `
+    }, 
+    async afterRender(){
+        const user = isAuthenticated();
+        console.log("usersssssssss",user);
+        const sessionUser = ()=>{
+            if(isAuthenticated() == false ){
+                return `
+                    <div class="ml-5">
+                        <a  class="ml-2" href="/#/signin">
+                            <span class="text-red-600 text-lg"><i class="fas fa-user"></i></span>
+                            <p id="login" class="text-sm font-medium">Login</p>
+                        </a>
+                    </div>
+                `
+            } else {
+                if (isAuthenticated().permission == "ADMIN") {
+                    return `
+                    <div class="ml-3 group cursor-pointer ">
+                        <span class="text-red-600 text-lg" style="margin-left:20px;"><i class="fas fa-user"></i></span>
+                        <p class="text-sm font-medium ml-2 relative">Hi <span class="text-blue-600">${user.name}</span></p>
+                        <div class="hidden group-hover:block absolute z-50 bg-white rounded-md border border-blue-600" style="top:75px; ">
+                            <a href="/#/products/index"><button class="hover:bg-gray-200 rounded-t-md py-3 text-sm font-semibold text-black hover:text-gray-700" style="padding: 0 55.6px;">Quản trị </button></a><br>
+                            <a href="/#/order"><button class="hover:bg-gray-200 border-b border-t rounded-t-md py-3 text-sm font-semibold text-black hover:text-gray-700" style="padding: 0 50.2px;">Đơn hàng</button></a><br>
+                            <button class="cursor-pointer hover:bg-gray-200 rounded-b-md px-10 text-sm py-3 font-semibold text-black hover:text-gray-700" style="padding: 0 49px;" id="logout">Đăng xuất</button>
+                        </div>
+                    </div>
+                    `
+                } else {
+                    return `
+                    <div class="ml-3 text-center cursor-pointer group">
+                        <span class="mr-4 text-red-600 text-lg text-center" style="margin-left:30px;"><i class="fas fa-user"></i></span>
+                        <p class="text-sm font-medium ml-2">Hi <span class="text-blue-600">${user.name}</span></p>
+                        <div class="hidden group-hover:block absolute z-50 bg-white rounded-md border border-black"style="top:75px">
+                        <a href="/#/order"><button class="hover:bg-gray-200 rounded-t-md py-3 text-sm font-semibold text-black hover:text-gray-700" style="padding: 0 50.2px;">Đơn hàng</button></a><br>
+                            <button class="cursor-pointer hover:bg-gray-200 rounded-b-md px-10 text-sm py-3 font-semibold text-black hover:text-gray-700" style="padding: 0 49px;" id="logout">Đăng xuất</button>
+                        </div>
+                    </div>
+                    `
+                }
+            }
+        }
+        document.querySelector("#user")!.innerHTML = sessionUser();
+        document.querySelector("#logout")!.addEventListener("click", function(){
+            localStorage.removeItem('user');
+            localStorage.removeItem('token');
+            localStorage.removeItem('cartNumber');
+            localStorage.removeItem('cart');
+            localStorage.removeItem('totalPrice');
+            window.location.hash = '/signin';
+        })
     }
 };

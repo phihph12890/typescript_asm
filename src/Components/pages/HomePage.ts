@@ -4,7 +4,7 @@ import { header } from "../clientComponent/header.js";
 import { banner } from "../clientComponent/banner.js";
 import { footer } from "../clientComponent/footer.js";
 import { ProductApi } from "../../api/ProductApi.js";
-import { prices, $$, productSearch, addToCart, onLoadCartNumber, getTotalItemOnCart } from "../../ultis.js";
+import { prices, $$, productSearch, addToCart, onLoadCartNumber, getTotalItemOnCart, clickLogout } from "../../ultis.js";
 
 export class HomePage extends Component {
     public async template() {
@@ -46,6 +46,7 @@ export class HomePage extends Component {
     }
     public async afterRender() {
         productSearch();
+        
         onLoadCartNumber();
         (document.querySelector("#sticky") as HTMLElement).style.position = "sticky";
         (document.querySelector("#sticky") as HTMLElement).style.top = "30px";
@@ -109,6 +110,20 @@ export class HomePage extends Component {
                 })
                 .join("");
             $$("#list_product").innerHTML = resultSort;
+
+            const btns = $$(".btn_addCart");
+            btns.forEach(async (btn: any) => {
+                var btn_id = btn.dataset.id;
+                btn.addEventListener("click", async () => {
+                    console.log(btn_id);
+                    const responseProducts = await ProductApi.read(btn_id);
+                    const products = await responseProducts.json();
+                    console.log(products);
+                    addToCart(products.id, products.name, products.image, products.price, products.categoryId);
+                    getTotalItemOnCart();
+                    onLoadCartNumber();
+                });
+            });
         });
 
         var filter = $$("#filter");
@@ -144,6 +159,20 @@ export class HomePage extends Component {
                 })
                 .join("");
             $$("#list_product").innerHTML = resultFilter;
+
+            const btns = $$(".btn_addCart");
+            btns.forEach(async (btn: any) => {
+                var btn_id = btn.dataset.id;
+                btn.addEventListener("click", async () => {
+                    console.log(btn_id);
+                    const responseProducts = await ProductApi.read(btn_id);
+                    const products = await responseProducts.json();
+                    console.log(products);
+                    addToCart(products.id, products.name, products.image, products.price, products.categoryId);
+                    getTotalItemOnCart();
+                    onLoadCartNumber();
+                });
+            });
         });
 
         const btns = $$(".btn_addCart");
@@ -159,5 +188,6 @@ export class HomePage extends Component {
                 onLoadCartNumber();
             });
         });
+        return `${await header.afterRender()}`
     }
 }

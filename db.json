@@ -170,5 +170,68 @@
       "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F26.png?alt=media&token=1e71216c-6604-4a64-ae59-a105957ca589",
       "id": 18
     }
+  ],
+  "users": [
+    {
+      "email": "phi1@gmail.com",
+      "password": "$2a$10$qpKazAwHmabz9TQexecRUeGLiNQZui9gxdkIUbWve4FV1oPBuIK86",
+      "name": "Phi",
+      "permission": "ADMIN",
+      "id": 1
+    },
+    {
+      "name": "Phi2",
+      "email": "phi2@gmail.com",
+      "password": "$2a$10$uibhSWRsSUDMe9eXreE4FuuAKVbhFvgrDnzWZjqb0Z1kqeVbtQwyC",
+      "permission": "KHÁCH HÀNG",
+      "id": 2
+    },
+    {
+      "email": "phi3@gmail.com",
+      "password": "$2a$10$DHhIeFpIvMtYb9EKtwOF/.06S9WbkVQxfdiWTfjh3abUFrBssYRja",
+      "name": "phi3",
+      "permission": "KHÁCH HÀNG",
+      "id": 3
+    },
+    {
+      "email": "phi4@gmail.com",
+      "password": "$2a$10$2yveaYSpZrjxZy4ZnIalZOi5V1r4e96xOEoOMpEWfGdhip0b50fem",
+      "name": "phi4",
+      "permission": "KHÁCH HÀNG",
+      "id": 4
+    }
+  ],
+  "orders": [
+    {
+      "userId": 1,
+      "name": "Hồ Hoàng Phi",
+      "email": "hohoangphi0401@gmail.com",
+      "address": "Nghệ An",
+      "phoneNumber": "0988889264",
+      "note": "ok",
+      "totalPrice": 79770000,
+      "cartNumber": 3,
+      "cart": [
+        {
+          "id": 3,
+          "name": "Acer Predator Helios 300 (PH315-53-78TN NH.QAUSV.005) Core i7-10750H, 16GB, 512GB, RTX 3060, 15.6'' FHD 300Hz",
+          "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F3.jpg?alt=media&token=f4e86617-1665-4730-b720-94ed8339f10c",
+          "price": "41990000",
+          "cateId": "1",
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "name": "Acer Nitro 5 2019 AN515-54 (Core i5-9300H, 8GB, 256GB, VGA 4GB GTX 1650, 15.6 FHD IPS)",
+          "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F2.jpg?alt=media&token=c517ae37-3721-4d50-a73f-6243028158d5",
+          "price": "18890000",
+          "cateId": "1",
+          "quantity": 2
+        }
+      ],
+      "status": "CHƯA DUYỆT",
+      "create_at": "10-08-2021",
+      "id": 1
+    }
   ]
 }

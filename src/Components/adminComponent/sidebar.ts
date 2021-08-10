@@ -33,10 +33,21 @@ export const sidebar = {
                             </a>
                         </li>
                         <li class="nav-item">
-                            
                             <a href="#/products/index" data-navigo class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p class="text-sm">Quản trị sản phẩm</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#/users/index" data-navigo class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p class="text-sm">Quản trị người dùng</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#/orders/index" data-navigo class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p class="text-sm">Quản trị đơn hàng</p>
                             </a>
                         </li>
                     </ul>

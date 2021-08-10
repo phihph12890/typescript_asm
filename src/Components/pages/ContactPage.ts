@@ -5,7 +5,7 @@ import { banner } from "../clientComponent/banner.js";
 import { footer } from "../clientComponent/footer.js";
 import { ProductApi } from "../../api/ProductApi.js";
 import { CategoryApi } from "../../api/CategoryApi.js";
-import { prices, $$, productSearch } from "../../ultis.js";
+import { prices, $$, productSearch, onLoadCartNumber } from "../../ultis.js";
 
 export class ContactPage extends Component {
     public async template() {
@@ -77,5 +77,8 @@ export class ContactPage extends Component {
     }
     public async afterRender() {
         productSearch();
+        productSearch();
+        onLoadCartNumber();
+        return `${await header.afterRender()}`
     }
 }

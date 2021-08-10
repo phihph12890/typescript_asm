@@ -20,6 +20,12 @@ export const reRender = async (component: any, position = "") => {
     }
     await component.afterRender();
 };
+// export const authenticated = (accessToken:any) => {
+//     const user = jwt_decode(accessToken);
+//     if (typeof window !== 'undefined') {
+//         return localStorage.setItem('user', JSON.stringify(user));
+//     }
+// }
 export const isAuthenticated = () => {
     if (typeof window == "undefined") {
         return false;
@@ -28,6 +34,22 @@ export const isAuthenticated = () => {
         return JSON.parse(localStorage.getItem("user")!);
     } else {
         return false;
+    }
+};
+export const logout = () => {
+    if (localStorage.getItem("user")) {
+        return localStorage.removeItem("user");
+    }
+};
+export const clickLogout = () => {
+    if (document.querySelector("#logout") != undefined) {
+        (document.querySelector("#logout") as HTMLElement).onclick = () => {
+            logout();
+            localStorage.removeItem("cartNumber");
+            localStorage.removeItem("cart");
+            localStorage.removeItem("totalPrice");
+            window.location.hash = "/signin";
+        };
     }
 };
 export const productSearch = () => {
@@ -40,7 +62,7 @@ export const productSearch = () => {
         });
     }
 };
-export const addToCart = (id: number, name: string, image: string, price: number, cateId:string) => {
+export const addToCart = (id: number, name: string, image: string, price: number, cateId: string) => {
     let cartStorage = localStorage.getItem("cart");
     let screenCart = null;
     if (cartStorage == null) {
@@ -56,10 +78,10 @@ export const addToCart = (id: number, name: string, image: string, price: number
         image: image,
         price: price,
         cateId: cateId,
-        quantity: 1
+        quantity: 1,
     };
 
-    let existed = screenCart.findIndex((ele:any) => ele.id == item.id);
+    let existed = screenCart.findIndex((ele: any) => ele.id == item.id);
     if (existed == -1) {
         item.quantity = 1;
         screenCart.push(item);
@@ -69,7 +91,7 @@ export const addToCart = (id: number, name: string, image: string, price: number
     }
     console.log(item);
     localStorage.setItem("cart", JSON.stringify(screenCart));
-    alert("Thêm giỏ hàng thành công")
+    alert("Thêm giỏ hàng thành công");
 };
 
 export const getTotalItemOnCart = () => {
@@ -81,13 +103,18 @@ export const getTotalItemOnCart = () => {
         screenCart = JSON.parse(cartStorage);
     }
     let totalItems = 0;
-    screenCart.forEach((element:any) => {
+    screenCart.forEach((element: any) => {
         totalItems += element.quantity;
     });
-    localStorage.setItem("cartNumber", totalItems);
+    let totalItemss: string = String(totalItems);
+    localStorage.setItem("cartNumber", totalItemss);
     return totalItems;
 };
 export const onLoadCartNumber = () => {
-    let cartNumber = localStorage.getItem('cartNumber');
+    let cartNumber = localStorage.getItem("cartNumber");
     $$("#totalCart").textContent = cartNumber;
-}
+};
+export const addToOrder = (id: number, userId: number, name: string, email: string, address: string, phoneNumber: string, 
+    note: string, totalPrice: number, cartNumber: number, cart: object, status: string, create_at: string) => {
+
+};
