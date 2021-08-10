@@ -114,7 +114,4 @@ export const onLoadCartNumber = () => {
     let cartNumber = localStorage.getItem("cartNumber");
     $$("#totalCart").textContent = cartNumber;
 };
-export const addToOrder = (id: number, userId: number, name: string, email: string, address: string, phoneNumber: string, 
-    note: string, totalPrice: number, cartNumber: number, cart: object, status: string, create_at: string) => {
 
-};

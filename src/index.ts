@@ -11,6 +11,10 @@ import { UserCreate } from "./Components/Users/UserCreate.js";
 import { UserIndex } from "./Components/Users/UserIndex.js";
 import { UserEdit } from "./Components/Users/UserEdit.js";
 
+import { OrderIndex } from "./Components/Orders/OrderIndex.js";
+import { OrderEdit } from "./Components/Orders/OrderEdit.js";
+import { OrderDetailAdmin } from "./Components/Orders/OrderDetailAdmin.js";
+
 import { HomePage } from "./Components/pages/HomePage.js";
 import { CategoryPage } from "./Components/pages/CategoryPage.js";
 import { ShopCartPage } from "./Components/pages/ShopCartPage.js";
@@ -19,6 +23,8 @@ import { AboutPage } from "./Components/pages/AboutPage.js";
 import { ContactPage } from "./Components/pages/ContactPage.js";
 import { SignupPage } from "./Components/pages/SignupPage.js";
 import { SigninPage } from "./Components/pages/SigninPage.js";
+import { OrderPage } from "./Components/pages/OrderPage.js";
+import { OrderDetailPage } from "./Components/pages/OrderDetailPage.js";
 
 declare const window: any;
 
@@ -82,6 +88,23 @@ const routes = () => {
             await gui.render();
             gui.afterRender();
         })
+        .on("/orders/index", async () => {
+            const gui: Component = new OrderIndex();
+            await gui.render();
+            gui.afterRender();
+        })
+        .on("/orders/edit/:id", async (params: Match) => {
+            const id = params?.data?.id; //Kiểm tra trong params có data hay không?
+            const gui: Component = new OrderEdit(id);
+            await gui.render();
+            gui.afterRender();
+        })
+        .on("/orders/detailadmin/:id", async (params: Match) => {
+            const id = params?.data?.id; //Kiểm tra trong params có data hay không?
+            const gui: Component = new OrderDetailAdmin(id);
+            await gui.render();
+            // gui.afterRender();
+        })
         .on("/", async () => {
             const gui: Component = new HomePage();
             await gui.render();
@@ -121,6 +144,16 @@ const routes = () => {
         })
         .on("/signin", async () => {
             const gui: Component = new SigninPage();
+            await gui.render();
+            // gui.afterRender();
+        })
+        .on("/order", async () => {
+            const gui: Component = new OrderPage();
+            await gui.render();
+        })
+        .on("/orderdetail/:id", async (params: Match) => {
+            const id = params?.data?.id; //Kiểm tra trong params có data hay không?
+            const gui: Component = new OrderDetailPage(id);
             await gui.render();
             // gui.afterRender();
         })

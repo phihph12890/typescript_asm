@@ -321,6 +321,7 @@ var ShopCartPage = /** @class */ (function (_super) {
                                     console.log(order);
                                     OrderApi.add(order);
                                     alert("Thêm đơn hàng thành công!");
+                                    window.location.hash = "/order";
                                 }
                                 else {
                                     errorEmail.innerHTML = "Email sai định dạng!";

@@ -172,5 +172,3 @@ export var onLoadCartNumber = function () {
     var cartNumber = localStorage.getItem("cartNumber");
     $$("#totalCart").textContent = cartNumber;
 };
-export var addToOrder = function (id, userId, name, email, address, phoneNumber, note, totalPrice, cartNumber, cart, status, create_at) {
-};

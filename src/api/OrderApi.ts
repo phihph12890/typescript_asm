@@ -70,4 +70,10 @@ export class OrderApi {
             },
         });
     }
+    public static getByUser(id: string) {
+        const url: string = `http://localhost:3000/orders?userId=${id}`;
+        return fetch(url, {
+            method: "GET",
+        });
+    }
 }

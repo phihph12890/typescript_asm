@@ -70,6 +70,12 @@ var OrderApi = /** @class */ (function () {
             },
         });
     };
+    OrderApi.getByUser = function (id) {
+        var url = "http://localhost:3000/orders?userId=" + id;
+        return fetch(url, {
+            method: "GET",
+        });
+    };
     return OrderApi;
 }());
 export { OrderApi };

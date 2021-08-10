@@ -43,6 +43,9 @@ import { ProductEdit } from "./Components/Products/ProductEdit.js";
 import { UserCreate } from "./Components/Users/UserCreate.js";
 import { UserIndex } from "./Components/Users/UserIndex.js";
 import { UserEdit } from "./Components/Users/UserEdit.js";
+import { OrderIndex } from "./Components/Orders/OrderIndex.js";
+import { OrderEdit } from "./Components/Orders/OrderEdit.js";
+import { OrderDetailAdmin } from "./Components/Orders/OrderDetailAdmin.js";
 import { HomePage } from "./Components/pages/HomePage.js";
 import { CategoryPage } from "./Components/pages/CategoryPage.js";
 import { ShopCartPage } from "./Components/pages/ShopCartPage.js";
@@ -51,6 +54,8 @@ import { AboutPage } from "./Components/pages/AboutPage.js";
 import { ContactPage } from "./Components/pages/ContactPage.js";
 import { SignupPage } from "./Components/pages/SignupPage.js";
 import { SigninPage } from "./Components/pages/SigninPage.js";
+import { OrderPage } from "./Components/pages/OrderPage.js";
+import { OrderDetailPage } from "./Components/pages/OrderDetailPage.js";
 var routes = function () {
     window.router
         .on("/categories/index", function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -151,6 +156,51 @@ var routes = function () {
                 case 1:
                     _b.sent();
                     gui.afterRender();
+                    return [2 /*return*/];
+            }
+        });
+    }); })
+        .on("/orders/index", function () { return __awaiter(void 0, void 0, void 0, function () {
+        var gui;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    gui = new OrderIndex();
+                    return [4 /*yield*/, gui.render()];
+                case 1:
+                    _a.sent();
+                    gui.afterRender();
+                    return [2 /*return*/];
+            }
+        });
+    }); })
+        .on("/orders/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+        var id, gui;
+        var _a;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                    gui = new OrderEdit(id);
+                    return [4 /*yield*/, gui.render()];
+                case 1:
+                    _b.sent();
+                    gui.afterRender();
+                    return [2 /*return*/];
+            }
+        });
+    }); })
+        .on("/orders/detailadmin/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+        var id, gui;
+        var _a;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                    gui = new OrderDetailAdmin(id);
+                    return [4 /*yield*/, gui.render()];
+                case 1:
+                    _b.sent();
                     return [2 /*return*/];
             }
         });
@@ -264,6 +314,34 @@ var routes = function () {
                     return [4 /*yield*/, gui.render()];
                 case 1:
                     _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); })
+        .on("/order", function () { return __awaiter(void 0, void 0, void 0, function () {
+        var gui;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    gui = new OrderPage();
+                    return [4 /*yield*/, gui.render()];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); })
+        .on("/orderdetail/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+        var id, gui;
+        var _a;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                    gui = new OrderDetailPage(id);
+                    return [4 /*yield*/, gui.render()];
+                case 1:
+                    _b.sent();
                     return [2 /*return*/];
             }
         });
