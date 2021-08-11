@@ -199,6 +199,13 @@
       "name": "phi4",
       "permission": "KHÁCH HÀNG",
       "id": 4
+    },
+    {
+      "name": "phi4",
+      "email": "phi5@gmail.com",
+      "password": "$2a$10$Pwkjbx7i.JMnwaMqbz.Q7OsZWyiKlpfnecp2sXvlme6TX/1zeRDJm",
+      "permission": "ADMIN",
+      "id": 5
     }
   ],
   "orders": [
@@ -294,6 +301,37 @@
       "status": "CHƯA DUYỆT",
       "create_at": "10-08-2021",
       "id": 5
+    },
+    {
+      "userId": 5,
+      "name": "Hồ Phi",
+      "email": "phi4@gmail.com",
+      "address": "Hà Nội",
+      "phoneNumber": "0988889264",
+      "note": "Giao hàng đúng hẹn",
+      "totalPrice": 39780000,
+      "cartNumber": 2,
+      "cart": [
+        {
+          "id": 1,
+          "name": "ACER NITRO 5 2020 AN 515-55 (Core i5-10300H, 8GB, 256GB, VGA 4GB GTX 1650, 15.6 IPS 60Hz)",
+          "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F1.jpg?alt=media&token=39d97463-e30b-40be-9e93-93ce2fe471c7",
+          "price": "20890000",
+          "cateId": "1",
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "name": "Acer Nitro 5 2019 AN515-54 (Core i5-9300H, 8GB, 256GB, VGA 4GB GTX 1650, 15.6 FHD IPS)",
+          "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F2.jpg?alt=media&token=c517ae37-3721-4d50-a73f-6243028158d5",
+          "price": "18890000",
+          "cateId": "1",
+          "quantity": 1
+        }
+      ],
+      "status": "ĐÃ HOÀN THÀNH",
+      "create_at": "11-08-2021",
+      "id": 6
     }
   ]
 }
