@@ -92,7 +92,7 @@ var SigninPage = /** @class */ (function (_super) {
                                 alert("Đăng nhập thành công!");
                                 localStorage.setItem("token", data.accessToken);
                                 localStorage.setItem("user", JSON.stringify(data.user));
-                                window.location.hash = "/";
+                                window.location.href = "/";
                             }
                         });
                         return [2 /*return*/];

@@ -56,296 +56,912 @@ import { SignupPage } from "./Components/pages/SignupPage.js";
 import { SigninPage } from "./Components/pages/SigninPage.js";
 import { OrderPage } from "./Components/pages/OrderPage.js";
 import { OrderDetailPage } from "./Components/pages/OrderDetailPage.js";
-var routes = function () {
-    window.router
-        .on("/categories/index", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var gui;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    gui = new CategoryIndex();
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _a.sent();
-                    gui.afterRender();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/categories/create", function () {
-        var gui = new CategoryCreate();
-        gui.render();
-    })
-        .on("/categories/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, gui;
-        var _a;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
-                    gui = new CategoryEdit(id);
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _b.sent();
-                    gui.afterRender();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/products/index", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var gui;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    gui = new ProductIndex();
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _a.sent();
-                    gui.afterRender();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/products/create", function () {
-        var gui = new ProductCreate();
-        gui.render();
-    })
-        .on("/products/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, gui;
-        var _a;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
-                    gui = new ProductEdit(id);
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _b.sent();
-                    gui.afterRender();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/users/index", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var gui;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    gui = new UserIndex();
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _a.sent();
-                    gui.afterRender();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/users/create", function () {
-        var gui = new UserCreate();
-        gui.render();
-    })
-        .on("/users/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, gui;
-        var _a;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
-                    gui = new UserEdit(id);
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _b.sent();
-                    gui.afterRender();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/orders/index", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var gui;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    gui = new OrderIndex();
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _a.sent();
-                    gui.afterRender();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/orders/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, gui;
-        var _a;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
-                    gui = new OrderEdit(id);
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _b.sent();
-                    gui.afterRender();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/orders/detailadmin/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, gui;
-        var _a;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
-                    gui = new OrderDetailAdmin(id);
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _b.sent();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var gui;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    gui = new HomePage();
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _a.sent();
-                    gui.afterRender();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/category/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, gui;
-        var _a;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
-                    gui = new CategoryPage(id);
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _b.sent();
-                    gui.afterRender();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/shopcart", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var gui;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    gui = new ShopCartPage();
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/search/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, gui;
-        var _a;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
-                    gui = new ProductSearch(id);
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _b.sent();
-                    gui.afterRender();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/about", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var gui;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    gui = new AboutPage();
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _a.sent();
-                    gui.afterRender();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/contact", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var gui;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    gui = new ContactPage();
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _a.sent();
-                    gui.afterRender();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/signup", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var gui;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    gui = new SignupPage();
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/signin", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var gui;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    gui = new SigninPage();
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/order", function () { return __awaiter(void 0, void 0, void 0, function () {
-        var gui;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    gui = new OrderPage();
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _a.sent();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .on("/orderdetail/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, gui;
-        var _a;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
-                    gui = new OrderDetailPage(id);
-                    return [4 /*yield*/, gui.render()];
-                case 1:
-                    _b.sent();
-                    return [2 /*return*/];
-            }
-        });
-    }); })
-        .resolve();
-};
+import { isAuthenticated } from "./ultis.js";
+var routes;
+if (isAuthenticated() == false) {
+    routes = function () {
+        window.router
+            .on("/categories/index", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var gui;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        alert("Không phải ADMIN, từ chối quyền truy cập!");
+                        gui = new HomePage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/categories/create", function () {
+            alert("Không phải ADMIN, từ chối quyền truy cập!");
+            var gui = new HomePage();
+            gui.render();
+        })
+            .on("/categories/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+            var id, gui;
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        alert("Không phải ADMIN, từ chối quyền truy cập!");
+                        id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                        gui = new HomePage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _b.sent();
+                        gui.afterRender();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/products/index", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var gui;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        alert("Không phải ADMIN, từ chối quyền truy cập!");
+                        gui = new HomePage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _a.sent();
+                        gui.afterRender();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/products/create", function () {
+            alert("Không phải ADMIN, từ chối quyền truy cập!");
+            var gui = new HomePage();
+            gui.render();
+        })
+            .on("/products/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+            var id, gui;
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        alert("Không phải ADMIN, từ chối quyền truy cập!");
+                        id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                        gui = new HomePage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _b.sent();
+                        gui.afterRender();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/users/index", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var gui;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        alert("Không phải ADMIN, từ chối quyền truy cập!");
+                        gui = new HomePage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _a.sent();
+                        gui.afterRender();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/users/create", function () {
+            alert("Không phải ADMIN, từ chối quyền truy cập!");
+            var gui = new HomePage();
+            gui.render();
+        })
+            .on("/users/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+            var id, gui;
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        alert("Không phải ADMIN, từ chối quyền truy cập!");
+                        id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                        gui = new HomePage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _b.sent();
+                        gui.afterRender();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/orders/index", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var gui;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        alert("Không phải ADMIN, từ chối quyền truy cập!");
+                        gui = new HomePage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _a.sent();
+                        gui.afterRender();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/orders/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+            var id, gui;
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        alert("Không phải ADMIN, từ chối quyền truy cập!");
+                        id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                        gui = new HomePage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _b.sent();
+                        gui.afterRender();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/orders/detailadmin/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+            var id, gui;
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        alert("Không phải ADMIN, từ chối quyền truy cập!");
+                        id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                        gui = new HomePage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _b.sent();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var gui;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        gui = new HomePage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _a.sent();
+                        gui.afterRender();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/category/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+            var id, gui;
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                        gui = new CategoryPage(id);
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _b.sent();
+                        gui.afterRender();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/shopcart", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var gui;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        gui = new ShopCartPage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/search/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+            var id, gui;
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                        gui = new ProductSearch(id);
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _b.sent();
+                        gui.afterRender();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/about", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var gui;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        gui = new AboutPage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _a.sent();
+                        gui.afterRender();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/contact", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var gui;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        gui = new ContactPage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _a.sent();
+                        gui.afterRender();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/signup", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var gui;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        gui = new SignupPage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/signin", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var gui;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        gui = new SigninPage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/order", function () { return __awaiter(void 0, void 0, void 0, function () {
+            var gui;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        gui = new OrderPage();
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .on("/orderdetail/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+            var id, gui;
+            var _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                        gui = new OrderDetailPage(id);
+                        return [4 /*yield*/, gui.render()];
+                    case 1:
+                        _b.sent();
+                        return [2 /*return*/];
+                }
+            });
+        }); })
+            .resolve();
+    };
+}
+else {
+    if (isAuthenticated().permission == "KHÁCH HÀNG") {
+        routes = function () {
+            window.router
+                .on("/categories/index", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            alert("Không phải ADMIN, từ chối quyền truy cập!");
+                            gui = new HomePage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/categories/create", function () {
+                alert("Không phải ADMIN, từ chối quyền truy cập!");
+                var gui = new HomePage();
+                gui.render();
+            })
+                .on("/categories/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            alert("Không phải ADMIN, từ chối quyền truy cập!");
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new HomePage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/products/index", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            alert("Không phải ADMIN, từ chối quyền truy cập!");
+                            gui = new HomePage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/products/create", function () {
+                alert("Không phải ADMIN, từ chối quyền truy cập!");
+                var gui = new HomePage();
+                gui.render();
+            })
+                .on("/products/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            alert("Không phải ADMIN, từ chối quyền truy cập!");
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new HomePage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/users/index", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            alert("Không phải ADMIN, từ chối quyền truy cập!");
+                            gui = new HomePage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/users/create", function () {
+                alert("Không phải ADMIN, từ chối quyền truy cập!");
+                var gui = new HomePage();
+                gui.render();
+            })
+                .on("/users/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            alert("Không phải ADMIN, từ chối quyền truy cập!");
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new HomePage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/orders/index", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            alert("Không phải ADMIN, từ chối quyền truy cập!");
+                            gui = new HomePage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/orders/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            alert("Không phải ADMIN, từ chối quyền truy cập!");
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new HomePage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/orders/detailadmin/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            alert("Không phải ADMIN, từ chối quyền truy cập!");
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new HomePage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new HomePage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/category/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new CategoryPage(id);
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/shopcart", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new ShopCartPage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/search/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new ProductSearch(id);
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/about", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new AboutPage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/contact", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new ContactPage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/signup", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new SignupPage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/signin", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new SigninPage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/order", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new OrderPage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/orderdetail/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new OrderDetailPage(id);
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .resolve();
+        };
+    }
+    else {
+        routes = function () {
+            window.router
+                .on("/categories/index", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new CategoryIndex();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/categories/create", function () {
+                var gui = new CategoryCreate();
+                gui.render();
+            })
+                .on("/categories/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new CategoryEdit(id);
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/products/index", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new ProductIndex();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/products/create", function () {
+                var gui = new ProductCreate();
+                gui.render();
+            })
+                .on("/products/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new ProductEdit(id);
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/users/index", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new UserIndex();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/users/create", function () {
+                var gui = new UserCreate();
+                gui.render();
+            })
+                .on("/users/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new UserEdit(id);
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/orders/index", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new OrderIndex();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/orders/edit/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new OrderEdit(id);
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/orders/detailadmin/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new OrderDetailAdmin(id);
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new HomePage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/category/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new CategoryPage(id);
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/shopcart", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new ShopCartPage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/search/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new ProductSearch(id);
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/about", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new AboutPage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/contact", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new ContactPage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            gui.afterRender();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/signup", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new SignupPage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/signin", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new SigninPage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/order", function () { return __awaiter(void 0, void 0, void 0, function () {
+                var gui;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            gui = new OrderPage();
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .on("/orderdetail/:id", function (params) { return __awaiter(void 0, void 0, void 0, function () {
+                var id, gui;
+                var _a;
+                return __generator(this, function (_b) {
+                    switch (_b.label) {
+                        case 0:
+                            id = (_a = params === null || params === void 0 ? void 0 : params.data) === null || _a === void 0 ? void 0 : _a.id;
+                            gui = new OrderDetailPage(id);
+                            return [4 /*yield*/, gui.render()];
+                        case 1:
+                            _b.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            }); })
+                .resolve();
+        };
+    }
+}
 routes();

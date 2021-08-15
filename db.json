@@ -173,165 +173,50 @@
   ],
   "users": [
     {
-      "email": "phi1@gmail.com",
-      "password": "$2a$10$qpKazAwHmabz9TQexecRUeGLiNQZui9gxdkIUbWve4FV1oPBuIK86",
+      "email": "phi@gmail.com",
+      "password": "$2a$10$9pvnRpkhzUH2DfrBb8SlRuBmszLU2240sb8GCwiKNU0owXi.gA.a.",
       "name": "Phi",
       "permission": "ADMIN",
-      "id": 1
-    },
-    {
-      "name": "Phi2",
-      "email": "phi2@gmail.com",
-      "password": "$2a$10$uibhSWRsSUDMe9eXreE4FuuAKVbhFvgrDnzWZjqb0Z1kqeVbtQwyC",
-      "permission": "KHÁCH HÀNG",
-      "id": 2
-    },
-    {
-      "email": "phi3@gmail.com",
-      "password": "$2a$10$DHhIeFpIvMtYb9EKtwOF/.06S9WbkVQxfdiWTfjh3abUFrBssYRja",
-      "name": "phi3",
-      "permission": "KHÁCH HÀNG",
       "id": 3
     },
     {
-      "email": "phi4@gmail.com",
-      "password": "$2a$10$2yveaYSpZrjxZy4ZnIalZOi5V1r4e96xOEoOMpEWfGdhip0b50fem",
-      "name": "phi4",
+      "email": "phi2@gmail.com",
+      "password": "$2a$10$GC2JiN28KuWqpp/.xLsbCu0xrjCLh4ittlepgzElHnIfZpsz/RqDS",
+      "name": "Phi2",
       "permission": "KHÁCH HÀNG",
       "id": 4
     },
     {
-      "name": "phi4",
-      "email": "phi5@gmail.com",
-      "password": "$2a$10$Pwkjbx7i.JMnwaMqbz.Q7OsZWyiKlpfnecp2sXvlme6TX/1zeRDJm",
+      "email": "phi1@gmail.com",
+      "password": "$2a$10$M3z.oP4bAkfZRR3xcVU9hevGJdBQRcDJMc.1qMojIgI/1mkuv60AW",
+      "name": "Phi1",
       "permission": "ADMIN",
       "id": 5
     }
   ],
   "orders": [
     {
-      "userId": 3,
-      "name": "Phi3",
-      "email": "phi3@gmail.com",
-      "address": "Hà Nội",
-      "phoneNumber": "0387103055",
-      "note": "Ok",
-      "totalPrice": 171540000,
-      "cartNumber": 6,
-      "cart": [
-        {
-          "id": 5,
-          "name": "Asus ROG Zephyrus GA502 Ryzen 7-4800HS, 16GB, 512GB, RTX 2060, 15.6'' FHD IPS 144Hz\n",
-          "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F5.jpg?alt=media&token=01397feb-47ef-4aaa-b592-231f390e2409",
-          "price": "34890000",
-          "cateId": "2",
-          "quantity": 2
-        },
-        {
-          "id": 6,
-          "name": "Asus TUF Dash F15 FX516PE-HN005T Core i7-11370H, 8GB, 512GB, RTX 3050Ti, 15.6″ FHD 144Hz",
-          "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F6.jpg?alt=media&token=44e971d8-520d-4a4f-8557-561de9884107",
-          "price": "29990000",
-          "cateId": "2",
-          "quantity": 2
-        },
-        {
-          "id": 1,
-          "name": "ACER NITRO 5 2020 AN 515-55 (Core i5-10300H, 8GB, 256GB, VGA 4GB GTX 1650, 15.6 IPS 60Hz)",
-          "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F1.jpg?alt=media&token=39d97463-e30b-40be-9e93-93ce2fe471c7",
-          "price": "20890000",
-          "cateId": "1",
-          "quantity": 2
-        }
-      ],
-      "status": "ĐÃ HOÀN THÀNH",
-      "create_at": "10-08-2021",
-      "id": 3
-    },
-    {
-      "userId": 3,
-      "name": "Phi3",
-      "email": "phi3@gmail.com",
-      "address": "Số 9 - Ngõ 56 - Phú Kiều - Kiều Mai - Phường Phúc Diễn - Quận Bắc Từ Liêm - Hà Nội",
-      "phoneNumber": "0387103055",
-      "note": "Ok",
-      "totalPrice": 111560000,
-      "cartNumber": 4,
-      "cart": [
-        {
-          "id": 5,
-          "name": "Asus ROG Zephyrus GA502 Ryzen 7-4800HS, 16GB, 512GB, RTX 2060, 15.6'' FHD IPS 144Hz\n",
-          "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F5.jpg?alt=media&token=01397feb-47ef-4aaa-b592-231f390e2409",
-          "price": "34890000",
-          "cateId": "2",
-          "quantity": 2
-        },
-        {
-          "id": 1,
-          "name": "ACER NITRO 5 2020 AN 515-55 (Core i5-10300H, 8GB, 256GB, VGA 4GB GTX 1650, 15.6 IPS 60Hz)",
-          "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F1.jpg?alt=media&token=39d97463-e30b-40be-9e93-93ce2fe471c7",
-          "price": "20890000",
-          "cateId": "1",
-          "quantity": 2
-        }
-      ],
-      "status": "ĐÃ DUYỆT",
-      "create_at": "10-08-2021",
-      "id": 4
-    },
-    {
-      "userId": 1,
-      "name": "Phi1",
-      "email": "phi1@gmail.com",
-      "address": "Nghệ An",
+      "userId": 5,
+      "name": "a",
+      "email": "aaaa@gmail.com",
+      "address": "a",
       "phoneNumber": "0988889264",
-      "note": "Ok",
-      "totalPrice": 18890000,
+      "note": "a",
+      "totalPrice": 78890000,
       "cartNumber": 1,
       "cart": [
         {
-          "id": 2,
-          "name": "Acer Nitro 5 2019 AN515-54 (Core i5-9300H, 8GB, 256GB, VGA 4GB GTX 1650, 15.6 FHD IPS)",
-          "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F2.jpg?alt=media&token=c517ae37-3721-4d50-a73f-6243028158d5",
-          "price": "18890000",
-          "cateId": "1",
+          "id": 9,
+          "name": "Dell XPS 15 9500 Core i9-10885H, 64GB, 2TB, GTX 1650Ti, 15.6'' 4K Touch",
+          "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F9.jpg?alt=media&token=fb26e9e1-397b-4858-b445-2e74d6d3a09b",
+          "price": "78890000",
+          "cateId": "3",
           "quantity": 1
         }
       ],
-      "status": "CHƯA DUYỆT",
-      "create_at": "10-08-2021",
-      "id": 5
-    },
-    {
-      "userId": 5,
-      "name": "Hồ Phi",
-      "email": "phi4@gmail.com",
-      "address": "Hà Nội",
-      "phoneNumber": "0988889264",
-      "note": "Giao hàng đúng hẹn",
-      "totalPrice": 39780000,
-      "cartNumber": 2,
-      "cart": [
-        {
-          "id": 1,
-          "name": "ACER NITRO 5 2020 AN 515-55 (Core i5-10300H, 8GB, 256GB, VGA 4GB GTX 1650, 15.6 IPS 60Hz)",
-          "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F1.jpg?alt=media&token=39d97463-e30b-40be-9e93-93ce2fe471c7",
-          "price": "20890000",
-          "cateId": "1",
-          "quantity": 1
-        },
-        {
-          "id": 2,
-          "name": "Acer Nitro 5 2019 AN515-54 (Core i5-9300H, 8GB, 256GB, VGA 4GB GTX 1650, 15.6 FHD IPS)",
-          "image": "https://firebasestorage.googleapis.com/v0/b/ecmascript-9d7cc.appspot.com/o/images%2F2.jpg?alt=media&token=c517ae37-3721-4d50-a73f-6243028158d5",
-          "price": "18890000",
-          "cateId": "1",
-          "quantity": 1
-        }
-      ],
-      "status": "ĐÃ HOÀN THÀNH",
-      "create_at": "11-08-2021",
-      "id": 6
+      "status": "CHƯA DUYỆT", 
+      "create_at": "15-08-2021",
+      "id": 1
     }
   ]
 }
